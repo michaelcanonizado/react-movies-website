@@ -1,6 +1,6 @@
 function App() {
 	return (
-		<div className="App">
+		<div className="bg-primary text-neutral h-screen">
 			<h1 className="text-xl">React Movies</h1>
 		</div>
 	);
