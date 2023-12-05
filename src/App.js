@@ -4,7 +4,7 @@ import Footer from './components/Footer/Footer';
 
 function App() {
 	return (
-		<div className="bg-primary text-neutral h-screen">
+		<div className="bg-primary text-neutral h-screen font-serif">
 			<Header />
 			<Main />
 			<Footer />
