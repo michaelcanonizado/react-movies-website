@@ -1,7 +1,7 @@
 function App() {
 	return (
 		<div className="App">
-			<h1>React Movies</h1>
+			<h1 className="text-xl">React Movies</h1>
 		</div>
 	);
 }
