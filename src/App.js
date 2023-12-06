@@ -4,7 +4,8 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import MainRootLayout from './pages/MainRootLayout';
 import MoviesListRootLayout from './pages/MoviesListRootLayout';
-import Error from './pages/Error';
+import MainError from './pages/MainError';
+import MoviesListError from './pages/MoviesListError';
 import Home from './pages/Home';
 import Popular, { loader as popularMoviesLoader } from './pages/Popular';
 import TopRated from './pages/TopRated';
@@ -15,12 +16,13 @@ const router = createBrowserRouter([
 	{
 		path: '/',
 		element: <MainRootLayout />,
-		errorElement: <Error />,
+		errorElement: <MainError />,
 		children: [
 			{ index: true, element: <Home /> },
 			{
 				path: 'popular',
 				element: <MoviesListRootLayout />,
+				errorElement: <MoviesListError />,
 				children: [
 					{
 						index: true,

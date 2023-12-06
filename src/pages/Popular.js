@@ -4,7 +4,7 @@ import MoviesList from './../components/Main/MoviesList';
 
 import { options } from './../helpers/fecthOptions';
 
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, json } from 'react-router-dom';
 
 export default function Popular() {
 	const movies = useLoaderData();
@@ -18,7 +18,14 @@ export async function loader() {
 		options
 	);
 	if (!response.ok) {
-		console.log(response);
+		throw json(
+			{
+				message:
+					'Something went wrong with the API request, could not fetch Popular movies. Please visit another list or try again later.',
+				statusMessage: 'BAD REQUEST',
+			},
+			{ status: 400 }
+		);
 	} else {
 		return response;
 	}

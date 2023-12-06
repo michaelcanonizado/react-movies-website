@@ -7,7 +7,6 @@ export default function MoviesListRootLayout() {
 	return (
 		<div className="pt-6">
 			<div className="pb-6 text-[48px]">
-				{/* <span>{pageTitle}</span> */}
 				<span>What to Watch - React Movies</span>
 			</div>
 			<SecondaryNavbar className="pt-6" />
