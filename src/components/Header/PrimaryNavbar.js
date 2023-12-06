@@ -41,8 +41,8 @@ export default function Navbar() {
 					<div className="grid items-center">
 						<a className="h-fit" href="/">
 							<span className="text-base font-bold tracking-[0.0125em]">
-								Powered by <span className="text-IMDb">IMDb</span>{' '}
-								API
+								Powered by{' '}
+								<span className="text-accent-300">TMDB</span> API
 							</span>
 						</a>
 					</div>

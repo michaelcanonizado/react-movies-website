@@ -14,9 +14,9 @@ module.exports = {
 				accent: {
 					100: '#E50914',
 					200: '#ABCCF7',
+					300: '#18B7D9',
 				},
 				neutral: '#FFFFFF',
-				IMDb: '#F5C518',
 			},
 		},
 	},
