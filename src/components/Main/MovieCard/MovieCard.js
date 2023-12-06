@@ -33,7 +33,7 @@ export default function MovieCard({
 				</div>
 				<div className="text-ellipsis overflow-hidden movie-card_line-clamp">
 					<span className="font-medium tracking-[.03125em] leading-[1.5rem] ">
-						The Hunger Games: The Ballad of Songbirds & Snakes
+						{title}
 					</span>
 				</div>
 				<div className="mt-[12px] py-[9px] rounded grid place-items-center bg-secondary-100 hover:cursor-pointer hover:bg-[#30353C] transition-colors duration-150 ease-in-out">

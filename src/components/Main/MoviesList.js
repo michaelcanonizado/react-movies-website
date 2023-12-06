@@ -8,62 +8,17 @@ export default function MoviesList({ pageTitle, movies }) {
 
 	return (
 		<section className="pt-6 grid grid-cols-6 grid-rows-auto gap-6">
-			<MovieCard
-				id="872585"
-				rating="8.1"
-				title="Oppenheimer"
-				image="https://image.tmdb.org/t/p/w342/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
-				trailerLink="https://www.youtube.com/watch?v=bK6ldnjE3Y0"
-			/>
-			<MovieCard
-				id="872585"
-				rating="8.1"
-				title="Oppenheimer"
-				image="https://image.tmdb.org/t/p/w342/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
-				trailerLink="https://www.youtube.com/watch?v=bK6ldnjE3Y0"
-			/>
-			<MovieCard
-				id="872585"
-				rating="8.1"
-				title="Oppenheimer"
-				image="https://image.tmdb.org/t/p/w342/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
-				trailerLink="https://www.youtube.com/watch?v=bK6ldnjE3Y0"
-			/>
-			<MovieCard
-				id="872585"
-				rating="8.1"
-				title="Oppenheimer"
-				image="https://image.tmdb.org/t/p/w342/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
-				trailerLink="https://www.youtube.com/watch?v=bK6ldnjE3Y0"
-			/>
-			<MovieCard
-				id="872585"
-				rating="8.1"
-				title="Oppenheimer"
-				image="https://image.tmdb.org/t/p/w342/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
-				trailerLink="https://www.youtube.com/watch?v=bK6ldnjE3Y0"
-			/>
-			<MovieCard
-				id="872585"
-				rating="8.1"
-				title="Oppenheimer"
-				image="https://image.tmdb.org/t/p/w342/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
-				trailerLink="https://www.youtube.com/watch?v=bK6ldnjE3Y0"
-			/>
-			<MovieCard
-				id="872585"
-				rating="8.1"
-				title="Oppenheimer"
-				image="https://image.tmdb.org/t/p/w342/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
-				trailerLink="https://www.youtube.com/watch?v=bK6ldnjE3Y0"
-			/>
-			<MovieCard
-				id="872585"
-				rating="8.1"
-				title="Oppenheimer"
-				image="https://image.tmdb.org/t/p/w342/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
-				trailerLink="https://www.youtube.com/watch?v=bK6ldnjE3Y0"
-			/>
+			{movies.map((movie) => {
+				return (
+					<MovieCard
+						id={movie.id}
+						rating={movie.rating}
+						title={movie.title}
+						image="https://image.tmdb.org/t/p/w342/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
+						trailerLink={movie.trailerLink}
+					/>
+				);
+			})}
 		</section>
 	);
 }

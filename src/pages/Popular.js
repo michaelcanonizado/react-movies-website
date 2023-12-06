@@ -12,18 +12,32 @@ export default function Popular() {
 	return <MoviesList pageTitle="Popular" movies={movies} />;
 }
 
-export async function loader() {
-	const movies = [];
+const filterMovieData = (movies) => {
+	const data = movies.map((movie) => {
+		return {
+			id: movie.id,
+			title: movie.original_title,
+			rating: movie.vote_average.toFixed(2),
+			image: `https://image.tmdb.org/t/p/w342/${movie.poster_path}`,
+			trailerLink: 'https://www.youtube.com/watch?v=bK6ldnjE3Y0',
+		};
+	});
+	return data;
+};
 
-	const pageOneResponse = await fetch(
-		'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',
-		options
-	);
-	const pageTwoResponse = await fetch(
-		'https://api.themoviedb.org/3/movie/popular?language=en-US&page=2',
-		options
-	);
-	if (!pageOneResponse.ok || !pageTwoResponse.ok) {
+export async function loader() {
+	const response = await Promise.all([
+		fetch(
+			'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',
+			options
+		),
+		fetch(
+			'https://api.themoviedb.org/3/movie/popular?language=en-US&page=2',
+			options
+		),
+	]);
+
+	if (!response[0].ok) {
 		throw json(
 			{
 				message:
@@ -33,13 +47,14 @@ export async function loader() {
 			{ status: 400 }
 		);
 	} else {
-		//return movies[...pageOneResponse.results.json(), ...pageTwoResponse.results.json()]
+		const pageOne = await response[0].json();
+		const pageTwo = await response[1].json();
 
-		// movies.push(
-		// 	...pageOneResponse.results.json(),
-		// 	...pageTwoResponse.results.json()
-		// );
-		// console.log(movies);
-		console.log(pageOneResponse);
+		const allMoviesData = [...pageOne.results, ...pageTwo.results];
+
+		const filteredMoviesData = filterMovieData(allMoviesData);
+
+		return filteredMoviesData;
+		// return allMoviesData;
 	}
 }
