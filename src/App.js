@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 
-import { createBrowserRouter, RouterProvider, useNavigate } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-import RootLayout from './pages/RootLayout';
+import MainRootLayout from './pages/MainRootLayout';
+import MoviesListRootLayout from './pages/MoviesListRootLayout';
 import Error from './pages/Error';
 import Home from './pages/Home';
 import Popular, { loader as popularMoviesLoader } from './pages/Popular';
@@ -13,18 +14,36 @@ import Upcoming from './pages/Upcoming';
 const router = createBrowserRouter([
 	{
 		path: '/',
-		element: <RootLayout />,
+		element: <MainRootLayout />,
 		errorElement: <Error />,
 		children: [
 			{ index: true, element: <Home /> },
 			{
 				path: 'popular',
-				element: <Popular />,
-				loader: popularMoviesLoader,
+				element: <MoviesListRootLayout />,
+				children: [
+					{
+						index: true,
+						element: <Popular />,
+						loader: popularMoviesLoader,
+					},
+				],
 			},
-			{ path: 'top-rated', element: <TopRated /> },
-			{ path: 'now-playing', element: <NowPlaying /> },
-			{ path: 'upcoming', element: <Upcoming /> },
+			{
+				path: 'top-rated',
+				element: <MoviesListRootLayout />,
+				children: [{ index: true, element: <TopRated /> }],
+			},
+			{
+				path: 'now-playing',
+				element: <MoviesListRootLayout />,
+				children: [{ index: true, element: <NowPlaying /> }],
+			},
+			{
+				path: 'upcoming',
+				element: <MoviesListRootLayout />,
+				children: [{ index: true, element: <Upcoming /> }],
+			},
 		],
 	},
 ]);

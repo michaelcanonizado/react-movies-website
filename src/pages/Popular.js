@@ -20,7 +20,6 @@ export async function loader() {
 	if (!response.ok) {
 		console.log(response);
 	} else {
-		const movies = response.json();
-		return movies;
+		return response;
 	}
 }
