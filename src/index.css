@@ -2,6 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* html {
-	font-family: 'Roboto';
-} */
+.active {
+	@apply border-b-[3px] border-accent-100;
+}

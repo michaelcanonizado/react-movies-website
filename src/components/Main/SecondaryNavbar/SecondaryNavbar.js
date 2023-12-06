@@ -1,5 +1,23 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 
-export default function SecondaryNavbar() {
-	return <div>SecondaryNavbar</div>;
+const navLinkClasses = 'h-[48px] px-6 grid place-items-center';
+
+export default function SecondaryNavbar({ className }) {
+	return (
+		<ul className={`${className} flex justify-start font-black text-sm`}>
+			<NavLink to="/popular" className={navLinkClasses}>
+				POPULAR
+			</NavLink>
+			<NavLink to="/top-rated" className={navLinkClasses}>
+				TOP RATED
+			</NavLink>
+			<NavLink to="/now-playing" className={navLinkClasses}>
+				NOW PLAYING
+			</NavLink>
+			<NavLink to="/upcoming" className={navLinkClasses}>
+				UPCOMING
+			</NavLink>
+		</ul>
+	);
 }
