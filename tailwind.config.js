@@ -9,8 +9,12 @@ module.exports = {
 				secondary: {
 					100: '#2C2C2C',
 					200: '#1A1A1A',
+					300: '#121212',
 				},
-				accent: '#E50914',
+				accent: {
+					100: '#E50914',
+					200: '#ABCCF7',
+				},
 				neutral: '#FFFFFF',
 				IMDb: '#F5C518',
 			},
