@@ -7,8 +7,11 @@ export default function RootLayout() {
 	return (
 		<div className="bg-primary text-neutral h-screen font-serif">
 			<PrimaryNavbar />
-			<main>
-				<Outlet />
+
+			<main className="">
+				<div className="px-4 m-auto max-w-[1280px]">
+					<Outlet />
+				</div>
 			</main>
 		</div>
 	);

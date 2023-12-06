@@ -6,8 +6,8 @@ export default function Navbar() {
 	const onBlur = () => setFocusedInput(false);
 
 	return (
-		<header>
-			<nav className="py-3 px-6 flex gap-8 content-center bg-secondary-300">
+		<header className="bg-secondary-300">
+			<nav className="py-3 px-6 max-w-[1280px] m-auto flex gap-8 content-center ">
 				<div className="">
 					<div className="bg-accent-100 rounded w-fit pt-[2px] pb-[0px] px-[10px]">
 						<a className="" href="/">
