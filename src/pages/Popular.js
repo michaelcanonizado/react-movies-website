@@ -13,11 +13,17 @@ export default function Popular() {
 }
 
 export async function loader() {
-	const response = await fetch(
+	const movies = [];
+
+	const pageOneResponse = await fetch(
 		'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',
 		options
 	);
-	if (!response.ok) {
+	const pageTwoResponse = await fetch(
+		'https://api.themoviedb.org/3/movie/popular?language=en-US&page=2',
+		options
+	);
+	if (!pageOneResponse.ok || !pageTwoResponse.ok) {
 		throw json(
 			{
 				message:
@@ -27,6 +33,13 @@ export async function loader() {
 			{ status: 400 }
 		);
 	} else {
-		return response;
+		//return movies[...pageOneResponse.results.json(), ...pageTwoResponse.results.json()]
+
+		// movies.push(
+		// 	...pageOneResponse.results.json(),
+		// 	...pageTwoResponse.results.json()
+		// );
+		// console.log(movies);
+		console.log(pageOneResponse);
 	}
 }
