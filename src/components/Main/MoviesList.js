@@ -2,7 +2,9 @@ import React from 'react';
 
 import SecondaryNavbar from './SecondaryNavbar/SecondaryNavbar';
 
-export default function MoviesList({ pageTitle }) {
+export default function MoviesList({ pageTitle, movies }) {
+	console.log(movies);
+
 	return (
 		<div className="pt-6">
 			<div className="pb-6 text-[48px]">
