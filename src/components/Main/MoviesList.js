@@ -1,20 +1,69 @@
 import React from 'react';
 
 import SecondaryNavbar from './SecondaryNavbar/SecondaryNavbar';
+import MovieCard from './MovieCard/MovieCard';
 
 export default function MoviesList({ pageTitle, movies }) {
 	console.log(movies);
 
 	return (
-		// <div className="pt-6">
-		// 	<div className="pb-6 text-[48px]">
-		// 		<span>{pageTitle}</span>
-		// 		<span> - </span>
-		// 		<span>React Movies</span>
-		// 	</div>
-		// 	<SecondaryNavbar className="pt-6" />
-		// 	<section className="pt-6">MoviesList</section>
-		// </div>
-		<section className="pt-6">MoviesList</section>
+		<section className="pt-6 grid grid-cols-6 grid-rows-auto gap-6">
+			<MovieCard
+				id="872585"
+				rating="8.1"
+				title="Oppenheimer"
+				image="https://image.tmdb.org/t/p/w342/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
+				trailerLink="https://www.youtube.com/watch?v=bK6ldnjE3Y0"
+			/>
+			<MovieCard
+				id="872585"
+				rating="8.1"
+				title="Oppenheimer"
+				image="https://image.tmdb.org/t/p/w342/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
+				trailerLink="https://www.youtube.com/watch?v=bK6ldnjE3Y0"
+			/>
+			<MovieCard
+				id="872585"
+				rating="8.1"
+				title="Oppenheimer"
+				image="https://image.tmdb.org/t/p/w342/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
+				trailerLink="https://www.youtube.com/watch?v=bK6ldnjE3Y0"
+			/>
+			<MovieCard
+				id="872585"
+				rating="8.1"
+				title="Oppenheimer"
+				image="https://image.tmdb.org/t/p/w342/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
+				trailerLink="https://www.youtube.com/watch?v=bK6ldnjE3Y0"
+			/>
+			<MovieCard
+				id="872585"
+				rating="8.1"
+				title="Oppenheimer"
+				image="https://image.tmdb.org/t/p/w342/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
+				trailerLink="https://www.youtube.com/watch?v=bK6ldnjE3Y0"
+			/>
+			<MovieCard
+				id="872585"
+				rating="8.1"
+				title="Oppenheimer"
+				image="https://image.tmdb.org/t/p/w342/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
+				trailerLink="https://www.youtube.com/watch?v=bK6ldnjE3Y0"
+			/>
+			<MovieCard
+				id="872585"
+				rating="8.1"
+				title="Oppenheimer"
+				image="https://image.tmdb.org/t/p/w342/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
+				trailerLink="https://www.youtube.com/watch?v=bK6ldnjE3Y0"
+			/>
+			<MovieCard
+				id="872585"
+				rating="8.1"
+				title="Oppenheimer"
+				image="https://image.tmdb.org/t/p/w342/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
+				trailerLink="https://www.youtube.com/watch?v=bK6ldnjE3Y0"
+			/>
+		</section>
 	);
 }
