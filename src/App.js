@@ -7,6 +7,9 @@ import MoviesListRootLayout from './pages/MoviesListRootLayout';
 import MainError from './pages/MainError';
 import MoviesListError from './pages/MoviesListError';
 import Home from './pages/Home';
+import MovieDetailsPage, {
+	loader as MovieDetailsLoader,
+} from './pages/MovieDetailsPage';
 import Popular, { loader as popularMoviesLoader } from './pages/Popular';
 import TopRated from './pages/TopRated';
 import NowPlaying from './pages/NowPlaying';
@@ -19,6 +22,12 @@ const router = createBrowserRouter([
 		errorElement: <MainError />,
 		children: [
 			{ index: true, element: <Home /> },
+			{
+				path: '/movie/:movieId',
+				element: <MovieDetailsPage />,
+				loader: MovieDetailsLoader,
+			},
+
 			{
 				path: 'popular',
 				element: <MoviesListRootLayout />,

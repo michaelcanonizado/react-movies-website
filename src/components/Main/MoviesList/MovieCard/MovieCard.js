@@ -17,7 +17,7 @@ export default function MovieCard({
 
 	return (
 		<div className={`bg-secondary-200 rounded-md overflow-hidden ${className}`}>
-			<Link to={`${id}`}>
+			<Link to={`/movie/${id}`}>
 				<div className="h-[278px] w-full hover:cursor-pointer hover:brightness-90">
 					<img src={image} alt={title} className="h-full object-cover" />
 				</div>
@@ -41,7 +41,7 @@ export default function MovieCard({
 					</div>
 				</div>
 				<Link
-					to={`${id}`}
+					to={`/movie/${id}`}
 					className="text-ellipsis overflow-hidden movie-card_line-clamp h-[48px]
 				
 					hover:cursor-pointer group

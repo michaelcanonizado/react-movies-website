@@ -1,8 +1,8 @@
 import React from 'react';
 
-import MoviesList from './../components/Main/MoviesList';
-
 import { options } from './../helpers/fecthOptions';
+
+import MoviesList from '../components/Main/MoviesList/MoviesList';
 
 import { useLoaderData, json } from 'react-router-dom';
 

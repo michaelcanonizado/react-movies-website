@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useRouteError } from 'react-router-dom';
 
-import SecondaryNavbar from '../components/Main/SecondaryNavbar/SecondaryNavbar';
+import SecondaryNavbar from '../components/Main/MoviesList/SecondaryNavbar/SecondaryNavbar';
 
 export default function MoviesListError() {
 	const error = useRouteError();

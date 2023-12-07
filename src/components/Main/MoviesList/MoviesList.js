@@ -1,6 +1,5 @@
 import React from 'react';
 
-import SecondaryNavbar from './SecondaryNavbar/SecondaryNavbar';
 import MovieCard from './MovieCard/MovieCard';
 
 export default function MoviesList({ pageTitle, movies }) {
