@@ -22,7 +22,7 @@ const filterMovieData = async (movies) => {
 			rating: movie.vote_average.toFixed(2),
 			image: `https://image.tmdb.org/t/p/w342/${movie.poster_path}`,
 			releaseDate: movie.release_date,
-			langueage: movie.original_language,
+			language: movie.original_language,
 		});
 	}
 

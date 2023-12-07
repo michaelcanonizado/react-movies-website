@@ -15,7 +15,8 @@ export default function MoviesList({ pageTitle, movies }) {
 						rating={movie.rating}
 						title={movie.title}
 						image={movie.image}
-						trailerLink={movie.trailerLink}
+						releaseDate={movie.releaseDate}
+						language={movie.language}
 					/>
 				);
 			})}
