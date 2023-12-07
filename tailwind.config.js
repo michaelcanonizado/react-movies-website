@@ -3,6 +3,13 @@ module.exports = {
 	content: ['./src/**/*.{js,jsx,ts,tsx}'],
 	theme: {
 		fontFamily: { serif: ['Roboto'], display: ['Bebas Neue'] },
+		screens: {
+			xs: '250px',
+			sm: '350px',
+			md: '600px',
+			lg: '1024px',
+			xl: '1280px',
+		},
 		extend: {
 			colors: {
 				primary: '#000000',

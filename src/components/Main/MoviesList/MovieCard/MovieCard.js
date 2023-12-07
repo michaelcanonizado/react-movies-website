@@ -18,7 +18,7 @@ export default function MovieCard({
 	return (
 		<div className={`bg-secondary-200 rounded-md overflow-hidden ${className}`}>
 			<Link to={`/movie/${id}`}>
-				<div className="h-[278px] w-full hover:cursor-pointer hover:brightness-90">
+				<div className="lg:h-[225px] xl:h-[278px] w-full hover:cursor-pointer hover:brightness-90">
 					<img src={image} alt={title} className="h-full object-cover" />
 				</div>
 			</Link>
@@ -27,13 +27,13 @@ export default function MovieCard({
 					<div className="flex">
 						<span className="mt-[4px]">
 							<img
-								src="/icon-rating-star-yellow-14.svg"
+								src="/ icon-rating-star-red-14.svg"
 								alt={`${title}'s rating is ${rating}`}
 							/>
 						</span>
 						<span className="ml-[6px] font-semibold">{rating}</span>
 					</div>
-					<div className="grid h-[28px] w-[40px] px-[12px] ml-[8px] pt-[4px] hover:cursor-pointer hover:bg-secondary-100 rounded">
+					<div className="grid h-[28px] w-[40px] px-[12px] ml-[8px] pt-[6px] hover:cursor-pointer hover:bg-secondary-100 rounded">
 						<img
 							src="/icon-rating-star-blue-14.svg"
 							alt={`${title}'s rating is ${rating}`}

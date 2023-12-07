@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-const navLinkClasses = 'h-[48px] px-6 grid place-items-center';
+const navLinkClasses =
+	'h-[48px] px-6 grid place-items-center hover:bg-secondary-300 hover:cursor-pointer';
 
 export default function SecondaryNavbar({ className }) {
 	return (

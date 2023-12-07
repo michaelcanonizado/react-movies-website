@@ -14,7 +14,7 @@ export default function MainRootLayout() {
 			<PrimaryNavbar />
 
 			<main className="">
-				<div className="px-4 m-auto max-w-[1248px]">
+				<div className="px-4 m-auto lg:max-w-[1024px] xl:max-w-[1280px]">
 					<Outlet />
 				</div>
 			</main>
