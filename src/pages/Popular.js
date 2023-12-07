@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { options } from './../helpers/fecthOptions';
+import filterMovieData from '../helpers/filterMovieData';
 
 import MoviesList from '../components/Main/MoviesList/MoviesList';
 
@@ -9,25 +10,8 @@ import { useLoaderData, json } from 'react-router-dom';
 export default function Popular() {
 	const movies = useLoaderData();
 
-	return <MoviesList pageTitle="Popular" movies={movies} />;
+	return <MoviesList movies={movies} />;
 }
-
-const filterMovieData = async (movies) => {
-	const data = [];
-
-	for (const movie of movies) {
-		data.push({
-			id: movie.id,
-			title: movie.original_title,
-			rating: movie.vote_average.toFixed(2),
-			image: `https://image.tmdb.org/t/p/w342/${movie.poster_path}`,
-			releaseDate: movie.release_date,
-			language: movie.original_language,
-		});
-	}
-
-	return data;
-};
 
 export async function loader() {
 	const response = await Promise.all([
