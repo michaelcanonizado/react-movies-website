@@ -31,7 +31,7 @@ export default function MovieCard({
 						/>
 					</div>
 				</div>
-				<div className="text-ellipsis overflow-hidden movie-card_line-clamp">
+				<div className="text-ellipsis overflow-hidden movie-card_line-clamp h-[48px]">
 					<span className="font-medium tracking-[.03125em] leading-[1.5rem] ">
 						{title}
 					</span>

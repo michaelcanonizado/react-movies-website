@@ -12,16 +12,20 @@ export default function Popular() {
 	return <MoviesList pageTitle="Popular" movies={movies} />;
 }
 
-const filterMovieData = (movies) => {
-	const data = movies.map((movie) => {
-		return {
+const filterMovieData = async (movies) => {
+	const data = [];
+
+	for (const movie of movies) {
+		data.push({
 			id: movie.id,
 			title: movie.original_title,
 			rating: movie.vote_average.toFixed(2),
 			image: `https://image.tmdb.org/t/p/w342/${movie.poster_path}`,
-			trailerLink: 'https://www.youtube.com/watch?v=bK6ldnjE3Y0',
-		};
-	});
+			releaseDate: movie.release_date,
+			langueage: movie.original_language,
+		});
+	}
+
 	return data;
 };
 
@@ -38,6 +42,7 @@ export async function loader() {
 	]);
 
 	if (!response[0].ok) {
+		console.log(response);
 		throw json(
 			{
 				message:
@@ -52,9 +57,8 @@ export async function loader() {
 
 		const allMoviesData = [...pageOne.results, ...pageTwo.results];
 
-		const filteredMoviesData = filterMovieData(allMoviesData);
+		const filteredMoviesData = await filterMovieData(allMoviesData);
 
 		return filteredMoviesData;
-		// return allMoviesData;
 	}
 }

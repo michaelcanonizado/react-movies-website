@@ -14,7 +14,7 @@ export default function MoviesList({ pageTitle, movies }) {
 						id={movie.id}
 						rating={movie.rating}
 						title={movie.title}
-						image="https://image.tmdb.org/t/p/w342/8Gxv8gSFCU0XGDykEGv7zR1n2ua.jpg"
+						image={movie.image}
 						trailerLink={movie.trailerLink}
 					/>
 				);
