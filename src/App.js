@@ -12,8 +12,8 @@ import MovieDetailsPage, {
 } from './pages/MovieDetailsPage';
 import Popular, { loader as popularMoviesLoader } from './pages/Popular';
 import TopRated, { loader as topRatedMoviesLoader } from './pages/TopRated';
-import NowPlaying from './pages/NowPlaying';
-import Upcoming from './pages/Upcoming';
+import NowPlaying, { loader as nowPlayingMoviesLoader } from './pages/NowPlaying';
+import Upcoming, { loader as upcomingMoviesLoader } from './pages/Upcoming';
 
 const router = createBrowserRouter([
 	{
@@ -54,12 +54,24 @@ const router = createBrowserRouter([
 			{
 				path: 'now-playing',
 				element: <MoviesListRootLayout />,
-				children: [{ index: true, element: <NowPlaying /> }],
+				children: [
+					{
+						index: true,
+						element: <NowPlaying />,
+						loader: nowPlayingMoviesLoader,
+					},
+				],
 			},
 			{
 				path: 'upcoming',
 				element: <MoviesListRootLayout />,
-				children: [{ index: true, element: <Upcoming /> }],
+				children: [
+					{
+						index: true,
+						element: <Upcoming />,
+						loader: upcomingMoviesLoader,
+					},
+				],
 			},
 		],
 	},
