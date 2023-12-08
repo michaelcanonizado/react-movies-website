@@ -3,7 +3,7 @@ import React from 'react';
 import MovieCard from './MovieCard/MovieCard';
 
 export default function MoviesList({ movies }) {
-	// console.log(movies);
+	console.log(movies);
 	return (
 		<section
 			className="pt-[32px] grid grid-rows-auto 

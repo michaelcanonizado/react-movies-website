@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
 const navLinkClasses =
@@ -18,8 +18,7 @@ export default function SecondaryNavbar({ className }) {
 
 	return (
 		<ul
-			className={`${className} flex justify-start font-[900] text-sm overflow-x-scroll`}
-			onLoad="window.scroll(250,0)"
+			className={`${className} flex justify-start font-[900] text-sm overflow-x-scroll md:overflow-auto`}
 		>
 			<NavLink to="/popular" className={navLinkClasses}>
 				POPULAR

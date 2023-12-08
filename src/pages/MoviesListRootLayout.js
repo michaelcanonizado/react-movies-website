@@ -6,8 +6,19 @@ import SecondaryNavbar from '../components/Main/MoviesList/SecondaryNavbar/Secon
 export default function MoviesListRootLayout() {
 	return (
 		<div className="pt-6">
-			<div className="pb-6 text-[48px]">
-				<span>What to Watch - React Movies</span>
+			<div
+				className="pb-6 
+			
+			leading-[2.5rem]
+			font-bold
+			text-[32px]
+			md:leading-[3.125rem]
+			md:font-normal
+			md:text-[48px]"
+			>
+				<span className="whitespace-[wrap]">
+					What to Watch - React Movies
+				</span>
 			</div>
 			<SecondaryNavbar className="pt-6" />
 			<Outlet />
