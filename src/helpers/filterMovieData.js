@@ -9,14 +9,15 @@ const filterMovieData = async (
 	movieVideos
 ) => {
 	// Filter needed information from main movie details response
+
 	const filteredMovieData = {
 		id: movieDetails.id,
 		title: movieDetails.original_title,
 		rating: movieDetails.vote_average.toFixed(2),
-		image: `https://image.tmdb.org/t/p/w342/${movieDetails.poster_path}`,
+		image: `https://image.tmdb.org/t/p/w342${movieDetails.poster_path}`,
+		backdrop: `https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`,
 		releaseDate: movieDetails.release_date,
 		language: movieDetails.original_language,
-		backdrop: movieDetails.backdrop_path,
 		description: movieDetails.overview,
 		genres: movieDetails.genres,
 		runtime: movieDetails.runtime,
@@ -26,7 +27,7 @@ const filterMovieData = async (
 
 	// Check if movie does not have videos, else get trailer
 	if (movieVideos.results.length === 0) {
-		filteredMovieData.trailerLink = null;
+		filteredMovieData.trailer = null;
 	} else {
 		const filteredVideo = movieVideos.results.filter((video) => {
 			if (video.type === 'Trailer') {
@@ -34,11 +35,14 @@ const filterMovieData = async (
 			}
 		});
 
-		// If no trailer was found, set trailerLink to null
+		// If no trailer was found, set trailer to null
 		if (filterMovieData.length === 0) {
-			filteredMovieData.trailerLink = null;
+			filteredMovieData.trailer = null;
 		} else {
-			filteredMovieData.trailerLink = `https://www.youtube.com/watch?v=${filteredVideo[0].key}`;
+			filteredMovieData.trailer = {
+				youtubeLink: `https://www.youtube.com/watch?v=${filteredVideo[0].key}`,
+				youtubeId: filteredVideo[0].key,
+			};
 		}
 	}
 

@@ -26,9 +26,7 @@ export default function MovieCard({
 			<Link to={`/movie/${id}`}>
 				<div
 					className="
-					aspect-[2/3] 
-				
-				
+					aspect-poster 
 				w-full hover:cursor-pointer hover:brightness-90"
 				>
 					<img src={image} alt={title} className="w-full object-cover" />

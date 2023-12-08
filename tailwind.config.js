@@ -27,7 +27,7 @@ module.exports = {
 				neutral: '#FFFFFF',
 			},
 			aspectRatio: {
-				'2/3': '2 / 3',
+				poster: '2 / 3',
 			},
 		},
 	},

@@ -11,7 +11,7 @@ export default function MovieDetailsPage() {
 
 	console.log(movieDetails);
 
-	return <MovieDetails movieDetails={movieDetails} />;
+	return <MovieDetails movie={movieDetails} />;
 }
 
 export async function loader({ request, params }) {
