@@ -4,6 +4,8 @@
 
 html {
 	margin: 0;
+	padding: 0;
+	@apply bg-primary;
 }
 
 .movie-card_line-clamp {

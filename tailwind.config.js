@@ -17,13 +17,17 @@ module.exports = {
 					100: '#2C2C2C',
 					200: '#1A1A1A',
 					300: '#121212',
+					400: '#FFFFFFB3',
 				},
 				accent: {
 					100: '#E50914',
-					200: '#ABCCF7',
+					200: '#5799EF',
 					300: '#18B7D9',
 				},
 				neutral: '#FFFFFF',
+			},
+			aspectRatio: {
+				'2/3': '2 / 3',
 			},
 		},
 	},
