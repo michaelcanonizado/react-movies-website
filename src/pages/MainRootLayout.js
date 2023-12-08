@@ -6,10 +6,16 @@ import { Outlet } from 'react-router-dom';
 export default function MainRootLayout() {
 	return (
 		<div
-			className="bg-primary text-neutral pb-[100px] 
+			className="bg-primary text-neutral pb-[100px]
 		"
 		>
-			<PrimaryNavbar />
+			<PrimaryNavbar
+				className="
+			lg:max-w-[1024px] 
+			xl:max-w-[1280px]
+			px-4 m-auto
+			"
+			/>
 
 			<main className="">
 				<div

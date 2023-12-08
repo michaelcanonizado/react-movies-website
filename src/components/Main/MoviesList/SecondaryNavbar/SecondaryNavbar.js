@@ -5,9 +5,9 @@ const navLinkClasses =
 	'h-[48px] px-6 grid place-items-center hover:bg-secondary-300 hover:cursor-pointer tracking-wide w-fit whitespace-nowrap';
 
 export default function SecondaryNavbar({ className }) {
+	// Target the currently active link to be able to transition to it into view when secondary navbar becomes scrollable on smaller screen sizes
 	useEffect(() => {
 		const currActiveLink = document.querySelector('ul a.active');
-		console.log(currActiveLink);
 
 		currActiveLink.scrollIntoView({
 			behavior: 'smooth',
