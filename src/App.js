@@ -43,6 +43,7 @@ const router = createBrowserRouter([
 			{
 				path: 'top-rated',
 				element: <MoviesListRootLayout />,
+				errorElement: <MoviesListError />,
 				children: [
 					{
 						index: true,
@@ -54,6 +55,7 @@ const router = createBrowserRouter([
 			{
 				path: 'now-playing',
 				element: <MoviesListRootLayout />,
+				errorElement: <MoviesListError />,
 				children: [
 					{
 						index: true,
@@ -65,6 +67,7 @@ const router = createBrowserRouter([
 			{
 				path: 'upcoming',
 				element: <MoviesListRootLayout />,
+				errorElement: <MoviesListError />,
 				children: [
 					{
 						index: true,

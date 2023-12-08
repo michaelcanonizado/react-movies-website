@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { options } from './../helpers/fecthOptions';
-import filterMovieData from '../helpers/filterMovieData';
+import filterMoviesData from '../helpers/filterMoviesData';
 
 import MoviesList from '../components/Main/MoviesList/MoviesList';
 
@@ -31,9 +31,9 @@ export async function loader() {
 			{
 				message:
 					'Something went wrong with the API request, could not fetch Popular movies. Please visit another list or try again later.',
-				statusMessage: 'BAD REQUEST',
+				statusMessage: 'INTERNAL SERVER ERROR',
 			},
-			{ status: 400 }
+			{ status: 500 }
 		);
 	} else {
 		const pageOne = await response[0].json();
@@ -41,7 +41,7 @@ export async function loader() {
 
 		const allMoviesData = [...pageOne.results, ...pageTwo.results];
 
-		const filteredMoviesData = await filterMovieData(allMoviesData);
+		const filteredMoviesData = await filterMoviesData(allMoviesData);
 
 		return filteredMoviesData;
 	}
