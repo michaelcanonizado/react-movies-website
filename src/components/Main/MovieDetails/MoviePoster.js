@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function MoviePoster({ link, title }) {
+export default function MoviePoster({ link, title, className }) {
 	return (
-		<div className="w-[278px] aspect-poster">
+		<div className={`aspect-poster ${className}`}>
 			<img src={link} alt={title} />
 		</div>
 	);

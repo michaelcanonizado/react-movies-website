@@ -1,26 +1,30 @@
 import React from 'react';
-import Youtube from 'react-youtube';
-
-const options = {
-	height: '417px',
-	width: '741px',
-	playerVars: {
-		autoplay: 0,
-	},
-};
 
 export default function MovieTrailer({ trailer, height, width }) {
-	const options = {
-		height: height,
-		width: width,
-		playerVars: {
-			autoplay: 0,
-		},
-	};
-
 	return (
-		<div className="">
-			<Youtube videoId={trailer.youtubeId} opts={options} />
+		<div
+			className=""
+			style={{
+				position: 'relative',
+				paddingBottom: '56.25%',
+				height: '0',
+			}}
+		>
+			<iframe
+				src={`https://www.youtube.com/embed/${trailer.youtubeId}`}
+				width="560"
+				height="315"
+				title="A YouTube video"
+				frameborder="0"
+				allowfullscreen
+				style={{
+					position: 'absolute',
+					top: '0',
+					left: '0',
+					width: '100%',
+					height: '100%',
+				}}
+			></iframe>
 		</div>
 	);
 }

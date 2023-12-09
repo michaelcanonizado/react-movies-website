@@ -80,14 +80,38 @@ export default function MovieDetails({ movie }) {
 						</div>
 					</div>
 
-					<div className="flex gap-[10px]">
-						<MoviePoster link={image} title={title} />
-						<MovieTrailer
-							trailer={trailer}
-							height="417px"
-							width="741px"
+					<div
+						className="
+					flex
+					flex-col-reverse
+					md:flex-row
+					
+					gap-[10px]"
+					>
+						<MoviePoster
+							link={image}
+							title={title}
+							className="
+							sm:w-[120px]
+							md:w-[300px]
+							lg:w-[231px] 
+							xl:w-[278px]"
 						/>
-						<div className="grow grid gap-[10px]">
+						<div
+							className="
+							sm:w-full
+						md:w-[800px]
+						lg:w-[604px] 
+						xl:w-[741px]
+						"
+						>
+							<MovieTrailer
+								trailer={trailer}
+								height="417px"
+								width="741px"
+							/>
+						</div>
+						<div className="grow gap-[10px] hidden lg:grid">
 							<div
 								className=" backdrop-blur-xl
 							backdrop-brightness-[70%]

@@ -27,6 +27,11 @@ const router = createBrowserRouter([
 				element: <MovieDetailsPage />,
 				loader: MovieDetailsLoader,
 			},
+			// {
+			// 	path: '/movie/:movieId',
+			// 	element: <Popular />,
+			// 	loader: popularMoviesLoader,
+			// },
 
 			{
 				path: 'popular',
