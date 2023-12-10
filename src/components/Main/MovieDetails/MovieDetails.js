@@ -160,7 +160,9 @@ export default function MovieDetails({ movie }) {
 							})}
 						</div>
 						<div className="">
-							<p className="">{description}</p>
+							<p className="tracking-[0.03125em] leading-[1.5rem] font-normal">
+								{description}
+							</p>
 						</div>
 						<div className="">
 							<div className="">
