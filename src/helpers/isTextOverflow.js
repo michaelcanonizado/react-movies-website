@@ -3,8 +3,9 @@ function isTextOverflow(width, height, fontSize, text) {
 	const offScreenElement = document.createElement('div');
 	offScreenElement.style.position = 'absolute';
 	offScreenElement.style.visibility = 'hidden';
-	offScreenElement.style.width = `${width}px`;
-	offScreenElement.style.height = `${height}px`;
+	// Make the container a little bit smaller to make it more precise and detect even 1 letter overflow
+	offScreenElement.style.width = `${width - 50}px`;
+	offScreenElement.style.height = `${height - 50}px`;
 	offScreenElement.style.fontSize = `${fontSize}px`;
 	offScreenElement.style.overflow = 'scroll';
 	offScreenElement.style.inset = '0';
