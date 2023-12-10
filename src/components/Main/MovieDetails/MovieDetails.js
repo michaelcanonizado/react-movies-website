@@ -80,8 +80,10 @@ export default function MovieDetails({ movie }) {
 						<div className="">
 							<div
 								className={`${
-									isLongTitle ? 'text-[2rem]' : 'text-[3rem]'
-								} mr-[8px] leading-[2.125rem]`}
+									isLongTitle
+										? 'text-[2rem] leading-[2.125rem]'
+										: 'text-[3rem] leading-[3rem]'
+								} mr-[8px] `}
 							>
 								{title}
 							</div>
@@ -135,7 +137,7 @@ export default function MovieDetails({ movie }) {
 							link={image}
 							title={title}
 							className="
-							sm:hidden
+							hidden
 							md:block
 							md:w-[300px]
 							lg:w-[231px] 
@@ -175,19 +177,36 @@ export default function MovieDetails({ movie }) {
 					flex flex-col lg:flex-row lg:justify-between
 				${screenBreakpoints} relative`}
 				>
-					<section className="lg:max-w-[653px] xl:max-w-[813px] w-full flex gap-[10px]">
+					<section
+						className="w-full lg:max-w-[653px] xl:max-w-[813px] 
+						flex gap-[10px]"
+					>
 						<MoviePoster
 							link={image}
 							title={title}
 							className="
 							sm:block
-							min-w-[120px]
 							md:hidden
-							grow
+							w-[120px]
 							"
 						/>
-						<div className="">
-							<div className="flex gap-[.5rem] mb-[.5rem] overflow-x-scroll">
+						<div className="shrink grow w-[100px]">
+							<div
+								className="flex gap-[.5rem] mb-[.5rem]
+
+								overflow-x-scroll overflow-hidden hide-scrollbar
+							"
+							>
+								{genres.map((genre) => {
+									return (
+										<GenrePill
+											genre={genre.name}
+											movieId={id}
+											genreId={id}
+											key={genre.id}
+										/>
+									);
+								})}
 								{genres.map((genre) => {
 									return (
 										<GenrePill
@@ -201,8 +220,14 @@ export default function MovieDetails({ movie }) {
 							</div>
 							<div className="mb-[1rem]">
 								<p
-									className="tracking-[0.03125em] leading-[1.5rem] font-normal
+									className="tracking-[0.03125em] leading-[1.5rem] font-normal 
+
+									w-full
 								
+									text-sm
+									md:text-base
+
+
 								text-ellipsis overflow-hidden movie-details_line-clamp
 								"
 									style={descriptionStyle}

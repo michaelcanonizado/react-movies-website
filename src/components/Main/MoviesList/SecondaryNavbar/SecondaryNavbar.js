@@ -18,7 +18,7 @@ export default function SecondaryNavbar({ className }) {
 
 	return (
 		<ul
-			className={`${className} flex justify-start font-[900] text-sm overflow-x-scroll md:overflow-auto`}
+			className={`${className} flex justify-start font-[900] text-sm overflow-x-scroll hide-scrollbar`}
 		>
 			<NavLink to="/popular" className={navLinkClasses}>
 				POPULAR

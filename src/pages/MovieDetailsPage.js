@@ -16,7 +16,7 @@ export default function MovieDetailsPage() {
 
 export async function loader({ request, params }) {
 	const response = await Promise.all([
-		fetch(`https:api.themoviedb.org/3/movie/${params.movieId}`, options),
+		fetch(`https://api.themoviedb.org/3/movie/${params.movieId}`, options),
 		fetch(
 			`https://api.themoviedb.org/3/movie/${params.movieId}/credits`,
 			options
@@ -33,6 +33,7 @@ export async function loader({ request, params }) {
 
 	if (!response[0].ok || !response[1].ok || !response[2].ok || !response[3].ok) {
 		console.log(response);
+		console.log('SOMETHING WENT WRONG');
 		throw json(
 			{
 				message:
