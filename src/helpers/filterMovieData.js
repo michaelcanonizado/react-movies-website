@@ -26,7 +26,7 @@ const filterMovieData = async (
 		tagline: movieDetails.tagline,
 	};
 
-	console.log(movieDetails);
+	console.log(movieCredits);
 
 	// Check if movie does not have videos, else get trailer
 	if (movieVideos.results.length === 0) {
@@ -60,14 +60,14 @@ const filterMovieData = async (
 
 	// Get movie credits
 	const credits = {
-		cast: [movieCredits.cast[0], movieCredits.cast[1], movieCredits.cast[2]],
-		director: movieCredits.crew.filter((crew) => {
-			if (crew.job === 'Director') {
+		casts: [movieCredits.cast[0], movieCredits.cast[1], movieCredits.cast[2]],
+		directors: movieCredits.crew.filter((crew) => {
+			if (crew.job === 'Director' || crew.department === 'Directing') {
 				return crew;
 			}
 		}),
-		producer: movieCredits.crew.filter((crew) => {
-			if (crew.job === 'Producer') {
+		writers: movieCredits.crew.filter((crew) => {
+			if (crew.department === 'Writing') {
 				return crew;
 			}
 		}),

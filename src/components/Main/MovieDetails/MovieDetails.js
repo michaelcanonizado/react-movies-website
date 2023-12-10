@@ -159,17 +159,25 @@ export default function MovieDetails({ movie }) {
 								);
 							})}
 						</div>
-						<div className="">
+						<div className="mb-[1rem]">
 							<p className="tracking-[0.03125em] leading-[1.5rem] font-normal">
 								{description}
 							</p>
 						</div>
 						<div className="">
-							<div className="">
-								<MovieCredits />
-								<MovieCredits />
-								<MovieCredits />
-							</div>
+							<ul className="">
+								<MovieCredits
+									type="Directors"
+									data={credits.directors}
+									movieId={id}
+								/>
+								<MovieCredits
+									type="Writers"
+									data={credits.writers}
+									movieId={id}
+								/>
+								<MovieCredits type="Stars" data={credits.casts} />
+							</ul>
 						</div>
 					</section>
 					<section className="mt-[20px] lg:mt-0 lg:max-w-[295px] xl:max-w-[356px] w-full">
