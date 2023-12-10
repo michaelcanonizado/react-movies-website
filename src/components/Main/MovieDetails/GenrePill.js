@@ -12,7 +12,7 @@ export default function GenrePill({ genre, movieId }) {
 			rounded-full border border-secondary-400 bg-secondary-100 bg-opacity-10 hover:bg-opacity-100 hover:brightness-120 transition-all"
 			href={`/movie${movieId}`}
 		>
-			<span className="">{genre}</span>
+			<span className="whitespace-nowrap">{genre}</span>
 		</a>
 	);
 }
