@@ -14,6 +14,7 @@ const filterMovieData = async (
 		id: movieDetails.id,
 		title: movieDetails.original_title,
 		rating: movieDetails.vote_average.toFixed(2),
+		ratingCount: movieDetails.vote_count,
 		image: `https://image.tmdb.org/t/p/w342${movieDetails.poster_path}`,
 		backdrop: `https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`,
 		releaseDate: movieDetails.release_date,
@@ -24,6 +25,8 @@ const filterMovieData = async (
 		status: movieDetails.status,
 		tagline: movieDetails.tagline,
 	};
+
+	console.log(movieDetails);
 
 	// Check if movie does not have videos, else get trailer
 	if (movieVideos.results.length === 0) {
@@ -56,7 +59,6 @@ const filterMovieData = async (
 	}
 
 	// Get movie credits
-	console.log(movieCredits);
 	const credits = {
 		cast: [movieCredits.cast[0], movieCredits.cast[1], movieCredits.cast[2]],
 		director: movieCredits.crew.filter((crew) => {

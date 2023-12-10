@@ -1,6 +1,15 @@
 import React from 'react';
+import YouTube from 'react-youtube';
 
-export default function MovieTrailer({ trailer, height, width }) {
+const opts = {
+	height: '390',
+	width: '640',
+	playerVars: {
+		autoplay: 0,
+	},
+};
+
+export default function MovieTrailer({ trailer, movieId }) {
 	return (
 		<div
 			className=""
@@ -10,13 +19,26 @@ export default function MovieTrailer({ trailer, height, width }) {
 				height: '0',
 			}}
 		>
+			{/* <YouTube
+				videoId={trailer.youtubeId}
+				opts={opts}
+				style={{
+					position: 'absolute',
+					top: '0',
+					left: '0',
+					width: '100%',
+					height: '100%',
+				}}
+			/> */}
+			{/* &origin=https://localhost:3000/movie/${movieId} */}
 			<iframe
-				src={`https://www.youtube.com/embed/${trailer.youtubeId}`}
 				width="560"
 				height="315"
-				title="A YouTube video"
-				frameborder="0"
-				allowfullscreen
+				src={`https://www.youtube.com/embed/${trailer.youtubeId}`}
+				title="YouTube video player"
+				frameBorder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				allowFullScreen
 				style={{
 					position: 'absolute',
 					top: '0',

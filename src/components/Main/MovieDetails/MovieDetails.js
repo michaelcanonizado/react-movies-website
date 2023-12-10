@@ -13,6 +13,7 @@ export default function MovieDetails({ movie }) {
 		id,
 		title,
 		rating,
+		ratingCount,
 		image,
 		releaseDate,
 		backdrop,
@@ -36,32 +37,37 @@ export default function MovieDetails({ movie }) {
 				className={`bg-no-repeat bg-cover bg-center relative`}
 				style={{ backgroundImage: `url(${backdrop})` }}
 			>
-				<div className="absolute w-full h-full  backdrop-brightness-[60%]"></div>
 				<div
-					className="absolute w-full h-[50%] bottom-0"
+					className="absolute w-full h-full  backdrop-brightness-[60%] backdrop-blur-sm
+				"
+				></div>
+				{/* rgba(44, 44, 44, 0.5) */}
+				<div
+					className="absolute w-full h-[75%] bottom-0"
 					style={{
 						background:
-							'linear-gradient(to top, black 5%, rgba(255, 255, 255, 0))',
+							'linear-gradient(to top, rgb(15, 15, 15, 0.9) 50%, rgb(255, 255, 255,0)',
 					}}
 				></div>
-				<div
-					className={`px-4 pb-[24px] m-auto
-					${screenBreakpoints} relative`}
-				>
-					<div className="flex justify-between">
-						<div className="">
-							<div className="text-[3rem]">{title}</div>
 
-							<div className="mt-[12px] flex self-center font-light text-xs tracking-wider">
+				<div
+					className={`px-4 m-auto
+					${screenBreakpoints} relative pt-[52px]`}
+				>
+					<div className="flex justify-between mb-[0.5rem]">
+						<div className="mt-[-20px]">
+							<div className="text-[3rem] mr-[8px]">{title}</div>
+
+							<div className="flex self-center text-neutral font-normal text-[.875rem] tracking-wider mt-[-4px]">
 								<span className="">{releaseYear}</span>
-								<span className="font-black mx-[6px] grid place-items-center">
+								<span className="font-black mx-[6px] w-[2px] grid place-items-center">
 									<img
 										src="/icon-dot-4.svg"
 										alt={`${title} details`}
 									/>
 								</span>
 								<span className="">{language.toUpperCase()}</span>
-								<span className="font-black mx-[6px] grid place-items-center">
+								<span className="font-black mx-[6px] w-[2px] grid place-items-center">
 									<img
 										src="/icon-dot-4.svg"
 										alt={`${title} details`}
@@ -73,10 +79,14 @@ export default function MovieDetails({ movie }) {
 							</div>
 						</div>
 
-						<div className="flex">
-							<RatesCard />
-							<RatesCard />
-							<RatesCard />
+						<div className="flex gap-[8px]">
+							<RatesCard
+								type="ratingResults"
+								movieId={id}
+								rating={rating}
+								ratingCount={ratingCount}
+							/>
+							<RatesCard type="castRating" movieId={id} />
 						</div>
 					</div>
 
@@ -105,11 +115,7 @@ export default function MovieDetails({ movie }) {
 						xl:w-[741px]
 						"
 						>
-							<MovieTrailer
-								trailer={trailer}
-								height="417px"
-								width="741px"
-							/>
+							<MovieTrailer trailer={trailer} movieId={id} />
 						</div>
 						<div className="grow gap-[10px] hidden lg:grid">
 							<div
@@ -129,25 +135,32 @@ export default function MovieDetails({ movie }) {
 						</div>
 					</div>
 				</div>
-			</section>
 
-			<section
-				className={`px-4 m-auto
-			${screenBreakpoints}`}
-			>
-				<div className="flex">
-					<GenrePill />
-					<GenrePill />
-					<GenrePill />
-				</div>
-				<div className="">Description</div>
-				<div className="">
-					<div className="">
-						<MovieCredits />
-						<MovieCredits />
-						<MovieCredits />
+				<div
+					className={`pt-[24px] px-4 m-auto
+				${screenBreakpoints} relative`}
+				>
+					<div className="flex gap-[.5rem] mb-[.5rem]">
+						{genres.map((genre) => {
+							return (
+								<GenrePill
+									genre={genre.name}
+									movieId={id}
+									genreId={id}
+									key={genre.id}
+								/>
+							);
+						})}
 					</div>
-					<div className="">Add to Watchlist</div>
+					<div className="">Description</div>
+					<div className="">
+						<div className="">
+							<MovieCredits />
+							<MovieCredits />
+							<MovieCredits />
+						</div>
+						<div className="">Add to Watchlist</div>
+					</div>
 				</div>
 			</section>
 		</>
