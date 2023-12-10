@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Collapse } from 'react-collapse';
 
 import screenBreakpoints from './../../../helpers/screenBreakpoints';
+import isTextOverflow from '../../../helpers/isTextOverflow';
 
 import RatesCard from './RatesCard';
 import MoviePoster from './MoviePoster';
@@ -32,11 +34,19 @@ export default function MovieDetails({ movie }) {
 	const [isLongDesc, setIsLongDesc] = useState(false);
 	const [isLongTitle, setIsLongTitle] = useState(false);
 
-	// Check for the length of description and title
+	// Check for if description will overflow the mounted container, and title length
 	useEffect(() => {
-		if (description.length > 300) {
-			setIsLongDesc(true);
-		}
+		const descriptionContainer = document.getElementById(
+			'movieDescriptionContainer'
+		);
+		const descriptionOverflow = isTextOverflow(
+			descriptionContainer.offsetWidth,
+			descriptionContainer.offsetHeight,
+			16,
+			description
+		);
+		setIsLongDesc(descriptionOverflow);
+
 		if (title.length > 35) {
 			setIsLongTitle(true);
 		}
@@ -231,6 +241,7 @@ export default function MovieDetails({ movie }) {
 								text-ellipsis overflow-hidden movie-details_line-clamp
 								"
 									style={descriptionStyle}
+									id="movieDescriptionContainer"
 								>
 									{description}
 								</p>
