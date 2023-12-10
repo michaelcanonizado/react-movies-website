@@ -30,12 +30,19 @@ export default function MovieDetails({ movie }) {
 
 	const [isDescExpanded, setIsDescExpanded] = useState(false);
 	const [isLongDesc, setIsLongDesc] = useState(false);
-	console.log(description.length);
+	const [isLongTitle, setIsLongTitle] = useState(false);
+
+	// Check for the length of description and title
 	useEffect(() => {
 		if (description.length > 300) {
 			setIsLongDesc(true);
 		}
-	}, [description]);
+		if (title.length > 35) {
+			setIsLongTitle(true);
+		}
+	}, [description, title]);
+
+	// If description is long, show expand description button
 	const onExpandDescriptionHandler = (e) => {
 		setIsDescExpanded(!isDescExpanded);
 	};
@@ -70,13 +77,19 @@ export default function MovieDetails({ movie }) {
 					${screenBreakpoints} relative pt-[52px]`}
 				>
 					<div className="flex justify-between mb-[0.5rem]">
-						<div className="mt-[-20px]">
-							<div className="text-[3rem] mr-[8px]">{title}</div>
+						<div className="">
+							<div
+								className={`${
+									isLongTitle ? 'text-[2rem]' : 'text-[3rem]'
+								} mr-[8px] leading-[2.125rem]`}
+							>
+								{title}
+							</div>
 
 							<div
 								className="flex self-center text-neutral font-normal text-[.875rem] tracking-wider 
 							
-							mt-[-4px]
+							mt-[8px]
 							ml-[4px]"
 							>
 								<span className="">{releaseYear}</span>
