@@ -33,7 +33,7 @@ export default function MovieDetails({ movie }) {
 
 	return (
 		<>
-			<section
+			<div
 				className={`bg-no-repeat bg-cover bg-center relative`}
 				style={{ backgroundImage: `url(${backdrop})` }}
 			>
@@ -50,7 +50,7 @@ export default function MovieDetails({ movie }) {
 					}}
 				></div>
 
-				<div
+				<section
 					className={`px-4 m-auto
 					${screenBreakpoints} relative pt-[52px]`}
 				>
@@ -58,7 +58,12 @@ export default function MovieDetails({ movie }) {
 						<div className="mt-[-20px]">
 							<div className="text-[3rem] mr-[8px]">{title}</div>
 
-							<div className="flex self-center text-neutral font-normal text-[.875rem] tracking-wider mt-[-4px]">
+							<div
+								className="flex self-center text-neutral font-normal text-[.875rem] tracking-wider 
+							
+							mt-[-4px]
+							ml-[4px]"
+							>
 								<span className="">{releaseYear}</span>
 								<span className="font-black mx-[6px] w-[2px] grid place-items-center">
 									<img
@@ -79,7 +84,7 @@ export default function MovieDetails({ movie }) {
 							</div>
 						</div>
 
-						<div className="flex gap-[8px]">
+						<div className="hidden lg:flex gap-[8px]">
 							<RatesCard
 								type="ratingResults"
 								movieId={id}
@@ -134,35 +139,42 @@ export default function MovieDetails({ movie }) {
 							</div>
 						</div>
 					</div>
-				</div>
+				</section>
 
 				<div
-					className={`pt-[24px] px-4 m-auto
+					className={`pt-[16px] px-4 m-auto
+					flex flex-col lg:flex-row lg:justify-between
 				${screenBreakpoints} relative`}
 				>
-					<div className="flex gap-[.5rem] mb-[.5rem]">
-						{genres.map((genre) => {
-							return (
-								<GenrePill
-									genre={genre.name}
-									movieId={id}
-									genreId={id}
-									key={genre.id}
-								/>
-							);
-						})}
-					</div>
-					<div className="">Description</div>
-					<div className="">
-						<div className="">
-							<MovieCredits />
-							<MovieCredits />
-							<MovieCredits />
+					<section className="lg:max-w-[653px] xl:max-w-[813px] w-full">
+						<div className="flex gap-[.5rem] mb-[.5rem]">
+							{genres.map((genre) => {
+								return (
+									<GenrePill
+										genre={genre.name}
+										movieId={id}
+										genreId={id}
+										key={genre.id}
+									/>
+								);
+							})}
 						</div>
+						<div className="">
+							<p className="">{description}</p>
+						</div>
+						<div className="">
+							<div className="">
+								<MovieCredits />
+								<MovieCredits />
+								<MovieCredits />
+							</div>
+						</div>
+					</section>
+					<section className="mt-[20px] lg:mt-0 lg:max-w-[295px] xl:max-w-[356px] w-full">
 						<div className="">Add to Watchlist</div>
-					</div>
+					</section>
 				</div>
-			</section>
+			</div>
 		</>
 	);
 }
