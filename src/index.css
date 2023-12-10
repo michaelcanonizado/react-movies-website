@@ -16,6 +16,13 @@ html {
 	overflow: hidden;
 }
 
+.movie-details_line-clamp {
+	width: 100%;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	overflow: hidden;
+}
+
 .active {
 	@apply border-b-[3px] border-accent-100;
 }

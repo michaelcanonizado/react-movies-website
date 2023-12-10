@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import screenBreakpoints from './../../../helpers/screenBreakpoints';
 
@@ -27,6 +27,21 @@ export default function MovieDetails({ movie }) {
 		tagline,
 		trailer,
 	} = movie;
+
+	const [isDescExpanded, setIsDescExpanded] = useState(false);
+	const [isLongDesc, setIsLongDesc] = useState(false);
+	console.log(description.length);
+	useEffect(() => {
+		if (description.length > 300) {
+			setIsLongDesc(true);
+		}
+	}, [description]);
+	const onExpandDescriptionHandler = (e) => {
+		setIsDescExpanded(!isDescExpanded);
+	};
+	const descriptionStyle = {
+		webkitLineClamp: isDescExpanded ? '' : '5',
+	};
 
 	const dateObject = new Date(releaseDate);
 	const releaseYear = dateObject.getFullYear();
@@ -107,7 +122,8 @@ export default function MovieDetails({ movie }) {
 							link={image}
 							title={title}
 							className="
-							sm:w-[120px]
+							sm:hidden
+							md:block
 							md:w-[300px]
 							lg:w-[231px] 
 							xl:w-[278px]"
@@ -146,41 +162,61 @@ export default function MovieDetails({ movie }) {
 					flex flex-col lg:flex-row lg:justify-between
 				${screenBreakpoints} relative`}
 				>
-					<section className="lg:max-w-[653px] xl:max-w-[813px] w-full">
-						<div className="flex gap-[.5rem] mb-[.5rem]">
-							{genres.map((genre) => {
-								return (
-									<GenrePill
-										genre={genre.name}
-										movieId={id}
-										genreId={id}
-										key={genre.id}
-									/>
-								);
-							})}
-						</div>
-						<div className="mb-[1rem]">
-							<p className="tracking-[0.03125em] leading-[1.5rem] font-normal">
-								{description}
-							</p>
-						</div>
+					<section className="lg:max-w-[653px] xl:max-w-[813px] w-full flex gap-[10px]">
+						<MoviePoster
+							link={image}
+							title={title}
+							className="
+							sm:block
+							min-w-[120px]
+							md:hidden
+							grow
+							"
+						/>
 						<div className="">
-							<ul className="">
-								<MovieCredits
-									type="Directors"
-									data={credits.directors}
-									movieId={id}
-								/>
-								<MovieCredits
-									type="Writers"
-									data={credits.writers}
-									movieId={id}
-								/>
-								<MovieCredits type="Stars" data={credits.casts} />
-							</ul>
+							<div className="flex gap-[.5rem] mb-[.5rem] overflow-x-scroll">
+								{genres.map((genre) => {
+									return (
+										<GenrePill
+											genre={genre.name}
+											movieId={id}
+											genreId={id}
+											key={genre.id}
+										/>
+									);
+								})}
+							</div>
+							<div className="mb-[1rem]">
+								<p
+									className="tracking-[0.03125em] leading-[1.5rem] font-normal
+								
+								text-ellipsis overflow-hidden movie-details_line-clamp
+								"
+									style={descriptionStyle}
+								>
+									{description}
+								</p>
+								{isLongDesc ? (
+									<span
+										className="text-accent-200 hover:cursor-pointer hover:underline"
+										onClick={onExpandDescriptionHandler}
+									>
+										{isDescExpanded ? 'Read Less' : 'Read More'}
+									</span>
+								) : (
+									''
+								)}
+							</div>
+							<div className="hidden md:block ">
+								<MovieCredits credits={credits} movieId={id} />
+							</div>
 						</div>
 					</section>
 					<section className="mt-[20px] lg:mt-0 lg:max-w-[295px] xl:max-w-[356px] w-full">
+						<div className="block md:hidden ">
+							<MovieCredits credits={credits} movieId={id} />
+						</div>
+
 						<div className="">Add to Watchlist</div>
 					</section>
 				</div>

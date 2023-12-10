@@ -61,16 +61,20 @@ const filterMovieData = async (
 	// Get movie credits
 	const credits = {
 		casts: [movieCredits.cast[0], movieCredits.cast[1], movieCredits.cast[2]],
-		directors: movieCredits.crew.filter((crew) => {
-			if (crew.job === 'Director' || crew.department === 'Directing') {
-				return crew;
-			}
-		}),
-		writers: movieCredits.crew.filter((crew) => {
-			if (crew.department === 'Writing') {
-				return crew;
-			}
-		}),
+		directors: movieCredits.crew
+			.filter((crew) => {
+				if (crew.job === 'Director' || crew.department === 'Directing') {
+					return crew;
+				}
+			})
+			.slice(0, 3),
+		writers: movieCredits.crew
+			.filter((crew) => {
+				if (crew.department === 'Writing') {
+					return crew;
+				}
+			})
+			.slice(0, 3),
 	};
 
 	filteredMovieData.credits = credits;
