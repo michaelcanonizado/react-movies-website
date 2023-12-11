@@ -199,7 +199,7 @@ export default function Navbar({ className }) {
 						></div>
 					</div>
 					<div className="grid items-center">
-						<a className="h-fit" href="/">
+						<a className="h-fit" href="/popular">
 							<span
 								className="
 							text-sm
