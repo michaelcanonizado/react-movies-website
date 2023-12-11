@@ -8,7 +8,7 @@ export default function Home() {
 			className={`px-4 m-auto h-screen grid place-items-center ${screenBreakpoints}`}
 		>
 			<div className="sm:max-w-[350px]">
-				<div className="mb-[15px]">
+				<div className="">
 					<span className="text-[1.5rem] xs:text-[2rem] md:text-[3rem]">
 						COMING SOON
 					</span>
@@ -25,7 +25,7 @@ export default function Home() {
 						className="rounded bg-accent-100 w-full pb-[9px] pt-[8px] block text-center hover:brightness-110"
 						href="/popular"
 					>
-						Go to Movies List
+						Movies List
 					</a>
 				</span>
 			</div>
