@@ -8,6 +8,7 @@ import MoviePoster from './MoviePoster';
 import MovieTrailer from './MovieTrailer';
 import GenrePill from './GenrePill';
 import MovieCredits from './MovieCredits';
+import AddToWatchlistCTA from './AddToWatchlistCTA';
 
 export default function MovieDetails({ movie }) {
 	const {
@@ -262,7 +263,9 @@ export default function MovieDetails({ movie }) {
 							<MovieCredits credits={credits} movieId={id} />
 						</div>
 
-						<div className="">Add to Watchlist</div>
+						<div className="">
+							<AddToWatchlistCTA />
+						</div>
 					</section>
 				</div>
 			</div>

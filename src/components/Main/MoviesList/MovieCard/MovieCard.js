@@ -99,7 +99,7 @@ export default function MovieCard({
 						xl:w-[16px]"
 						>
 							<img
-								src="/icon-add-to-watchlist-16.svg"
+								src="/icon-add-to-watchlist-blue.svg"
 								alt="Add to watchlist"
 							/>
 						</span>
