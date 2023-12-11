@@ -29,7 +29,7 @@ export default function Navbar({ className }) {
 				<div className="grid place-items-center">
 					<div
 						className="bg-accent-100 rounded w-fit 
-					
+						hover:brightness-110
 					sm:h-[40px]
 					
 					px-[10px] pt-[2px] grid place-items-center"
