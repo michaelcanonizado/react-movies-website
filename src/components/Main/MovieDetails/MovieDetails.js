@@ -216,16 +216,6 @@ export default function MovieDetails({ movie }) {
 										/>
 									);
 								})}
-								{genres.map((genre) => {
-									return (
-										<GenrePill
-											genre={genre.name}
-											movieId={id}
-											genreId={id}
-											key={genre.id}
-										/>
-									);
-								})}
 							</div>
 							<div className="mb-[1rem]">
 								<p
