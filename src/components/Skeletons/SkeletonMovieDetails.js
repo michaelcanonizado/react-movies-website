@@ -11,7 +11,7 @@ export default function SkeletonMovieDetails() {
 	return (
 		<>
 			<section
-				className={`px-4 m-auto relative pt-[52px] leading-[1] ${screenBreakpoints}`}
+				className={`px-4 m-auto relative pt-[60px] leading-[1] ${screenBreakpoints}`}
 			>
 				<div className="flex justify-between mb-[0.5rem]">
 					<div className="w-[70%] lg:w-[50%]">
@@ -94,13 +94,10 @@ export default function SkeletonMovieDetails() {
 			</section>
 
 			<div
-				className={`pt-[16px] px-4 m-auto
+				className={`pt-[16px] px-4 md:px-2 m-auto
                     flex flex-col lg:flex-row lg:justify-between relative pb-[50px] ${screenBreakpoints}`}
 			>
-				<section
-					className="w-full lg:max-w-[653px] xl:max-w-[813px] 
-                        flex gap-[10px]"
-				>
+				<section className="w-full lg:max-w-[653px] xl:max-w-[813px] flex gap-[10px]">
 					{/* MOVIE POSTER */}
 					<div className="">
 						<div
@@ -152,8 +149,8 @@ export default function SkeletonMovieDetails() {
                                     text-sm
                                     md:text-base"
 							>
-								<Skeleton count={2} />
-								<Skeleton count={2} />
+								<Skeleton count={3} />
+								{/* <Skeleton count={2} /> */}
 								<div className="block md:hidden">
 									<Skeleton count={3} />
 								</div>
