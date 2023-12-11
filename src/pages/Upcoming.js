@@ -5,6 +5,8 @@ import filterMoviesData from '../helpers/filterMoviesData';
 
 import MoviesList from '../components/Main/MoviesList/MoviesList';
 
+import SkeletonMoviesList from './../components/Skeletons/SkeletonMoviesList';
+
 import { useLoaderData, json } from 'react-router-dom';
 
 export default function Upcoming() {
