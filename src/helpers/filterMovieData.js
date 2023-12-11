@@ -12,7 +12,7 @@ const filterMovieData = async (
 
 	const filteredMovieData = {
 		id: movieDetails.id,
-		title: movieDetails.original_title,
+		title: movieDetails.title,
 		rating: movieDetails.vote_average.toFixed(2),
 		image: `https://image.tmdb.org/t/p/w342${movieDetails.poster_path}`,
 		backdrop: `https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`,

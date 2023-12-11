@@ -6,7 +6,7 @@ const filterMoviesData = async (movies) => {
 	for (const movie of movies) {
 		data.push({
 			id: movie.id,
-			title: movie.original_title,
+			title: movie.title,
 			rating: movie.vote_average.toFixed(2),
 			image: `https://image.tmdb.org/t/p/w342/${movie.poster_path}`,
 			releaseDate: movie.release_date,
