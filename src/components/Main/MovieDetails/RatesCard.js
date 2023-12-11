@@ -8,6 +8,8 @@ export default function RatesCard({ type, movieId, rating }) {
 		header = 'YOUR RATING';
 	}
 
+	const typographySharedClasses = 'text-[1rem] lg:text-[1.25rem]';
+
 	const ratingResultsComponent = (
 		<a
 			className={`flex justify-center mr-[4px] mt-[6px]`}
@@ -15,14 +17,16 @@ export default function RatesCard({ type, movieId, rating }) {
 		>
 			<div className="grid place-content-center">
 				<img
-					className="w-[40px]"
+					className="w-[30px] lg:w-[40px]"
 					src="/icon-rating-star-red-16.svg"
 					alt="Movie Rating"
 				/>
 			</div>
 			<div className="tracking-wide mt-[-2px]">
 				<div className="">
-					<span className="font-bold text-[1.25rem]">
+					<span
+						className={`font-bold ${typographySharedClasses} text-[1.25rem]`}
+					>
 						{parseFloat(rating).toFixed(1)}
 					</span>
 					<span className="">/10</span>
@@ -35,13 +39,21 @@ export default function RatesCard({ type, movieId, rating }) {
 		<a className={`flex justify-center`} href={`/movie/${movieId}`}>
 			<div className="grid place-content-center">
 				<img
-					className="w-[25px]"
+					className="w-[20px] lg:w-[25px]"
 					src="/icon-rating-star-blue-14.svg"
 					alt="Movie Rating"
 				/>
 			</div>
-			<div className="tracking-wide mt-[-2px] ml-[4px]">
-				<span className="text-accent-200 font-bold text-[1.25rem]">
+			<div
+				className="tracking-wide 
+			
+			lg:mt-[-2px] 
+			
+			ml-[4px]"
+			>
+				<span
+					className={`text-accent-200 font-bold ${typographySharedClasses}`}
+				>
 					Rate
 				</span>
 			</div>
@@ -50,12 +62,17 @@ export default function RatesCard({ type, movieId, rating }) {
 
 	return (
 		<div className="">
-			<div className="flex justify-center mb-[4px]">
+			<div
+				className="justify-center mb-[4px]
+			
+			hidden lg:flex
+			"
+			>
 				<span
 					className="text-secondary-400  tracking-widest font-bold
 				
 					text-[12px]
-				xl:text-[14px]
+					xl:text-[14px]
 				"
 				>
 					{header}
@@ -68,7 +85,9 @@ export default function RatesCard({ type, movieId, rating }) {
 				hover:backdrop-brightness-[85%]
 				hover:cursor-pointer 
 				
-				h-[40px] grid place-items-center rounded-md`}
+				h-[40px] 
+				
+				grid place-items-center rounded-md`}
 			>
 				{type === 'ratingResults'
 					? ratingResultsComponent

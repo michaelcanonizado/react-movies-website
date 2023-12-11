@@ -65,7 +65,7 @@ export default function MovieDetails({ movie }) {
 	return (
 		<>
 			<div
-				className={`bg-no-repeat bg-cover bg-center relative`}
+				className={`bg-no-repeat bg-cover bg-center relative min-h-screen pb-[50px]`}
 				style={{ backgroundImage: `url(${backdrop})` }}
 			>
 				<div
@@ -259,7 +259,7 @@ export default function MovieDetails({ movie }) {
 						</div>
 					</section>
 					<section
-						className="mt-[20px] lg:mt-0 lg:max-w-[295px] xl:max-w-[356px] w-full
+						className="mt-[10px] lg:mt-0 lg:max-w-[295px] xl:max-w-[356px] w-full
 					
 					flex flex-col lg:items-center justify-center
 					"
@@ -267,8 +267,20 @@ export default function MovieDetails({ movie }) {
 						<div className="block md:hidden ">
 							<MovieCredits credits={credits} movieId={id} />
 						</div>
-
-						<div className="w-full max-w-[432px] lg:w-full">
+						<div className="flex lg:hidden gap-[8px]">
+							<RatesCard
+								type="ratingResults"
+								movieId={id}
+								rating={rating}
+							/>
+							<RatesCard type="castRating" movieId={id} />
+						</div>
+						<div
+							className="w-full max-w-[432px] lg:w-full
+						
+						mt-[5px] lg:mt-0
+						"
+						>
 							<AddToWatchlistCTA />
 						</div>
 					</section>

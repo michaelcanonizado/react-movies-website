@@ -8,7 +8,7 @@ import { Outlet } from 'react-router-dom';
 export default function MainRootLayout() {
 	return (
 		<div
-			className="bg-primary text-neutral pb-[100px]
+			className="bg-primary text-neutral
 		"
 		>
 			<PrimaryNavbar className={`px-4 m-auto ${screenBreakpoints}`} />
