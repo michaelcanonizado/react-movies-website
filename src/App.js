@@ -13,7 +13,7 @@ import MoviesListRootLayout from './pages/MoviesListRootLayout';
 import MainError from './pages/MainError';
 import MoviesListError from './pages/MoviesListError';
 // Components - Home Page
-import Home from './pages/Home';
+import HomePage from './pages/HomePage';
 // Components - Movie Details Page
 import { loader as MovieDetailsLoader } from './pages/MovieDetailsPage';
 // Components - Movie Lists
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
 		element: <MainRootLayout />,
 		errorElement: <MainError />,
 		children: [
-			{ index: true, element: <Home /> },
+			{ index: true, element: <HomePage /> },
 			{
 				path: '/movie/:movieId',
 				element: (
