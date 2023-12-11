@@ -150,16 +150,21 @@ export default function MovieDetails({ movie }) {
 							lg:w-[231px] 
 							xl:w-[278px]"
 						/>
-						<div
-							className="
+						{trailer !== null ? (
+							<div
+								className="
 							sm:w-full
 						md:w-[800px]
 						lg:w-[604px] 
 						xl:w-[741px]
 						"
-						>
-							<MovieTrailer trailer={trailer} movieId={id} />
-						</div>
+							>
+								<MovieTrailer trailer={trailer} movieId={id} />
+							</div>
+						) : (
+							''
+						)}
+
 						<div className="grow gap-[10px] hidden lg:grid">
 							<div
 								className=" backdrop-blur-xl
@@ -168,13 +173,17 @@ export default function MovieDetails({ movie }) {
 							>
 								<span className=""></span>
 							</div>
-							<div
-								className="backdrop-blur-xl
+							{trailer !== null ? (
+								<div
+									className="backdrop-blur-xl
 							backdrop-brightness-[70%]
 							 hover:cursor-pointer"
-							>
-								<span className=""></span>
-							</div>
+								>
+									<span className=""></span>
+								</div>
+							) : (
+								''
+							)}
 						</div>
 					</div>
 				</section>

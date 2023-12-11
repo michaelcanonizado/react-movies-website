@@ -12,9 +12,6 @@ import { useLoaderData, json, defer, Await } from 'react-router-dom';
 export default function MovieDetailsPage() {
 	const { movieDetails } = useLoaderData();
 
-	// console.log(movieDetails);
-
-	// return <MovieDetails movie={movieDetails} />;
 	return (
 		<Suspense fallback={<SkeletonMovieDetails />}>
 			<Await resolve={movieDetails}>
@@ -25,8 +22,6 @@ export default function MovieDetailsPage() {
 }
 
 async function getMovieDetails(params) {
-	console.log('FUNCTION TRIGGERED');
-	console.log('PARAMS ' + params);
 	const response = await Promise.all([
 		fetch(`https://api.themoviedb.org/3/movie/${params.movieId}`, options),
 		fetch(
@@ -42,8 +37,6 @@ async function getMovieDetails(params) {
 			options
 		),
 	]);
-
-	console.log(response);
 
 	if (!response[0].ok || !response[1].ok || !response[2].ok || !response[3].ok) {
 		console.log(response);
@@ -68,6 +61,8 @@ async function getMovieDetails(params) {
 			movieSimilars,
 			movieVideos
 		);
+
+		console.log(filteredMovieData);
 		return filteredMovieData;
 	}
 }
