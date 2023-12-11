@@ -1,4 +1,4 @@
-function isTextOverflow(width, height, fontSize, text) {
+function isDescriptionOverflow(width, height, fontSize, text) {
 	// Create an off-screen element to measure the text width and height (create a temporary container with the same dimensions as the mounted countainer for the text)
 	const offScreenElement = document.createElement('div');
 	offScreenElement.style.position = 'absolute';
@@ -24,4 +24,4 @@ function isTextOverflow(width, height, fontSize, text) {
 	return isOverflowing;
 }
 
-export default isTextOverflow;
+export default isDescriptionOverflow;

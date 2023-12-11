@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Collapse } from 'react-collapse';
 
 import screenBreakpoints from './../../../helpers/screenBreakpoints';
-import isTextOverflow from '../../../helpers/isTextOverflow';
+import isDescriptionOverflow from '../../../helpers/isDescriptionOverflow';
 
 import RatesCard from './RatesCard';
 import MoviePoster from './MoviePoster';
@@ -39,7 +38,7 @@ export default function MovieDetails({ movie }) {
 		const descriptionContainer = document.getElementById(
 			'movieDescriptionContainer'
 		);
-		const descriptionOverflow = isTextOverflow(
+		const descriptionOverflow = isDescriptionOverflow(
 			descriptionContainer.offsetWidth,
 			descriptionContainer.offsetHeight,
 			14,
