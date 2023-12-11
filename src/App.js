@@ -117,7 +117,7 @@ const router = createBrowserRouter([
 function App() {
 	return (
 		<SkeletonTheme baseColor="#2C2C2C" highlightColor="#3C3C3C" duration={0.8}>
-			<RouterProvider router={router} />
+			<RouterProvider router={router} onUpdate={() => window.scrollTo(0, 0)} />
 		</SkeletonTheme>
 	);
 }
