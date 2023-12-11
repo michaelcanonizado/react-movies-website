@@ -42,7 +42,7 @@ export default function MovieDetails({ movie }) {
 		const descriptionOverflow = isTextOverflow(
 			descriptionContainer.offsetWidth,
 			descriptionContainer.offsetHeight,
-			16,
+			14,
 			description
 		);
 		setIsLongDesc(descriptionOverflow);
