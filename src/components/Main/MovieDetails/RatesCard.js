@@ -56,7 +56,13 @@ export default function RatesCard({ type, movieId, rating }) {
 				</span>
 			</div>
 			<div
-				className={`hover:bg-secondary-100 hover:backdrop-blur-xl hover:bg-opacity-10 hover:cursor-pointer h-[40px] grid place-items-center rounded-md`}
+				className={`hover:bg-secondary-100 
+				
+				hover:backdrop-blur-xl 
+				hover:bg-opacity-20 
+				hover:cursor-pointer 
+				
+				h-[40px] grid place-items-center rounded-md`}
 			>
 				{type === 'ratingResults'
 					? ratingResultsComponent
