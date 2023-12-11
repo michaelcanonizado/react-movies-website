@@ -258,12 +258,17 @@ export default function MovieDetails({ movie }) {
 							</div>
 						</div>
 					</section>
-					<section className="mt-[20px] lg:mt-0 lg:max-w-[295px] xl:max-w-[356px] w-full">
+					<section
+						className="mt-[20px] lg:mt-0 lg:max-w-[295px] xl:max-w-[356px] w-full
+					
+					flex flex-col lg:items-center justify-center
+					"
+					>
 						<div className="block md:hidden ">
 							<MovieCredits credits={credits} movieId={id} />
 						</div>
 
-						<div className="">
+						<div className="w-full max-w-[432px] lg:w-full">
 							<AddToWatchlistCTA />
 						</div>
 					</section>
