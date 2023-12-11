@@ -14,7 +14,7 @@ export default function GenrePill({ genre, movieId }) {
 			hover:bg-opacity-100 
 			hover:brightness-120 
 			transition-all"
-			href={`/movie${movieId}`}
+			href={`/movie/${movieId}`}
 		>
 			<span className="whitespace-nowrap">{genre}</span>
 		</a>
