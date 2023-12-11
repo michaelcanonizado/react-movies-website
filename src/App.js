@@ -97,7 +97,7 @@ const router = createBrowserRouter([
 
 function App() {
 	return (
-		<SkeletonTheme baseColor="#2C2C2C" highlightColor="#3C3C3C">
+		<SkeletonTheme baseColor="#2C2C2C" highlightColor="#3C3C3C" duration={0.8}>
 			<RouterProvider router={router} />
 		</SkeletonTheme>
 	);
