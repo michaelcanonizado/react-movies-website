@@ -8,7 +8,7 @@ export default function SkeletonMoviesCard() {
 	return (
 		<div className={`bg-secondary-200 rounded-md overflow-hidden`}>
 			{/* Movie Poster */}
-			<div className="aspect-poster w-full mt-[-4px]">
+			<div className="aspect-poster w-full leading-[1]">
 				<Skeleton width="100%" height="100%" />
 			</div>
 			<div className="mt-[18px] mb-[10px] mx-[10px] flex flex-col">
