@@ -1,19 +1,30 @@
-import { useEffect } from 'react';
-
+import { Suspense, lazy } from 'react';
+import { SkeletonTheme } from 'react-loading-skeleton';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
+// Skeletons
+import SkeletonMoviesList from './components/Skeletons/SkeletonMoviesList';
+
+// Components - Layouts
 import MainRootLayout from './pages/MainRootLayout';
 import MoviesListRootLayout from './pages/MoviesListRootLayout';
+// Components - Erros pages
 import MainError from './pages/MainError';
 import MoviesListError from './pages/MoviesListError';
+// Components - Home Page
 import Home from './pages/Home';
+// Components - Movie Details Page
 import MovieDetailsPage, {
 	loader as MovieDetailsLoader,
 } from './pages/MovieDetailsPage';
-import Popular, { loader as popularMoviesLoader } from './pages/Popular';
+// Components - Movie Lists
+import { loader as popularMoviesLoader } from './pages/Popular';
 import TopRated, { loader as topRatedMoviesLoader } from './pages/TopRated';
 import NowPlaying, { loader as nowPlayingMoviesLoader } from './pages/NowPlaying';
 import Upcoming, { loader as upcomingMoviesLoader } from './pages/Upcoming';
+
+// Components - Lazy Pages
+const LazyPopular = lazy(() => import('./pages/Popular'));
 
 const router = createBrowserRouter([
 	{
@@ -27,12 +38,6 @@ const router = createBrowserRouter([
 				element: <MovieDetailsPage />,
 				loader: MovieDetailsLoader,
 			},
-			// {
-			// 	path: '/movie/:movieId',
-			// 	element: <Popular />,
-			// 	loader: popularMoviesLoader,
-			// },
-
 			{
 				path: 'popular',
 				element: <MoviesListRootLayout />,
@@ -40,7 +45,12 @@ const router = createBrowserRouter([
 				children: [
 					{
 						index: true,
-						element: <Popular />,
+						element: (
+							<Suspense fallback={<SkeletonMoviesList />}>
+								<LazyPopular />
+								{/* <SkeletonMoviesList /> */}
+							</Suspense>
+						),
 						loader: popularMoviesLoader,
 					},
 				],
@@ -86,7 +96,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-	return <RouterProvider router={router} />;
+	return (
+		<SkeletonTheme baseColor="#2C2C2C" highlightColor="#3C3C3C">
+			<RouterProvider router={router} />
+		</SkeletonTheme>
+	);
 }
 
 export default App;

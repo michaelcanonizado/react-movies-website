@@ -1,19 +1,27 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 
 import { options } from './../helpers/fecthOptions';
 import filterMoviesData from '../helpers/filterMoviesData';
 
 import MoviesList from '../components/Main/MoviesList/MoviesList';
 
-import { useLoaderData, json } from 'react-router-dom';
+import SkeletonMoviesList from './../components/Skeletons/SkeletonMoviesList';
+
+import { useLoaderData, json, defer, Await } from 'react-router-dom';
 
 export default function Popular() {
-	const movies = useLoaderData();
+	const { movies } = useLoaderData();
 
-	return <MoviesList movies={movies} />;
+	return (
+		<Suspense fallback={<SkeletonMoviesList />}>
+			<Await resolve={movies}>
+				{(loadedMovies) => <MoviesList movies={loadedMovies} />}
+			</Await>
+		</Suspense>
+	);
 }
 
-export async function loader() {
+async function getMovies() {
 	const response = await Promise.all([
 		fetch(
 			'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',
@@ -45,4 +53,10 @@ export async function loader() {
 
 		return filteredMoviesData;
 	}
+}
+
+export async function loader() {
+	return defer({
+		movies: getMovies(),
+	});
 }

@@ -8,7 +8,7 @@ import SecondaryNavbar from '../components/Main/MoviesList/SecondaryNavbar/Secon
 export default function MoviesListRootLayout() {
 	return (
 		<div className={`px-4 m-auto ${screenBreakpoints}`}>
-			<div className="pt-6">
+			<div className="pt-6 pb-[50px]">
 				<div
 					className="pb-6 
 			
