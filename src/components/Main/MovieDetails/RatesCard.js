@@ -51,7 +51,13 @@ export default function RatesCard({ type, movieId, rating }) {
 	return (
 		<div className="">
 			<div className="flex justify-center mb-[4px]">
-				<span className="text-secondary-400 text-[14px] tracking-widest font-bold">
+				<span
+					className="text-secondary-400  tracking-widest font-bold
+				
+					text-[12px]
+				xl:text-[14px]
+				"
+				>
 					{header}
 				</span>
 			</div>
