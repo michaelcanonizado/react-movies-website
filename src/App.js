@@ -19,12 +19,15 @@ import MovieDetailsPage, {
 } from './pages/MovieDetailsPage';
 // Components - Movie Lists
 import { loader as popularMoviesLoader } from './pages/Popular';
-import TopRated, { loader as topRatedMoviesLoader } from './pages/TopRated';
-import NowPlaying, { loader as nowPlayingMoviesLoader } from './pages/NowPlaying';
-import Upcoming, { loader as upcomingMoviesLoader } from './pages/Upcoming';
+import { loader as topRatedMoviesLoader } from './pages/TopRated';
+import { loader as nowPlayingMoviesLoader } from './pages/NowPlaying';
+import { loader as upcomingMoviesLoader } from './pages/Upcoming';
 
 // Components - Lazy Pages
 const LazyPopular = lazy(() => import('./pages/Popular'));
+const LazyTopRated = lazy(() => import('./pages/TopRated'));
+const LazyNowPlaying = lazy(() => import('./pages/NowPlaying'));
+const LazyUpcoming = lazy(() => import('./pages/Upcoming'));
 
 const router = createBrowserRouter([
 	{
@@ -48,7 +51,6 @@ const router = createBrowserRouter([
 						element: (
 							<Suspense fallback={<SkeletonMoviesList />}>
 								<LazyPopular />
-								{/* <SkeletonMoviesList /> */}
 							</Suspense>
 						),
 						loader: popularMoviesLoader,
@@ -62,7 +64,11 @@ const router = createBrowserRouter([
 				children: [
 					{
 						index: true,
-						element: <TopRated />,
+						element: (
+							<Suspense fallback={<SkeletonMoviesList />}>
+								<LazyTopRated />
+							</Suspense>
+						),
 						loader: topRatedMoviesLoader,
 					},
 				],
@@ -74,7 +80,11 @@ const router = createBrowserRouter([
 				children: [
 					{
 						index: true,
-						element: <NowPlaying />,
+						element: (
+							<Suspense fallback={<SkeletonMoviesList />}>
+								<LazyNowPlaying />
+							</Suspense>
+						),
 						loader: nowPlayingMoviesLoader,
 					},
 				],
@@ -86,7 +96,11 @@ const router = createBrowserRouter([
 				children: [
 					{
 						index: true,
-						element: <Upcoming />,
+						element: (
+							<Suspense fallback={<SkeletonMoviesList />}>
+								<LazyUpcoming />
+							</Suspense>
+						),
 						loader: upcomingMoviesLoader,
 					},
 				],
