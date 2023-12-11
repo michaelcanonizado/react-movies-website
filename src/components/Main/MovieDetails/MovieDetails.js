@@ -14,7 +14,6 @@ export default function MovieDetails({ movie }) {
 		id,
 		title,
 		rating,
-		ratingCount,
 		image,
 		releaseDate,
 		backdrop,
@@ -56,7 +55,7 @@ export default function MovieDetails({ movie }) {
 		setIsDescExpanded(!isDescExpanded);
 	};
 	const descriptionStyle = {
-		webkitLineClamp: isDescExpanded ? '' : '5',
+		WebkitLineClamp: isDescExpanded ? '' : '5',
 	};
 
 	const dateObject = new Date(releaseDate);
@@ -128,7 +127,6 @@ export default function MovieDetails({ movie }) {
 								type="ratingResults"
 								movieId={id}
 								rating={rating}
-								ratingCount={ratingCount}
 							/>
 							<RatesCard type="castRating" movieId={id} />
 						</div>
@@ -218,6 +216,15 @@ export default function MovieDetails({ movie }) {
 								})}
 							</div>
 							<div className="mb-[1rem]">
+								<span
+									className=" text-secondary-400 italic font-normal tracking-[0.03125em]
+								
+								text-sm
+								md:text-base
+								"
+								>
+									"{tagline}"
+								</span>
 								<p
 									className="tracking-[0.03125em] leading-[1.5rem] font-normal 
 

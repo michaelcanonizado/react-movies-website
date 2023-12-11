@@ -14,7 +14,6 @@ const filterMovieData = async (
 		id: movieDetails.id,
 		title: movieDetails.original_title,
 		rating: movieDetails.vote_average.toFixed(2),
-		ratingCount: movieDetails.vote_count,
 		image: `https://image.tmdb.org/t/p/w342${movieDetails.poster_path}`,
 		backdrop: `https://image.tmdb.org/t/p/original${movieDetails.backdrop_path}`,
 		releaseDate: movieDetails.release_date,
@@ -26,7 +25,7 @@ const filterMovieData = async (
 		tagline: movieDetails.tagline,
 	};
 
-	console.log(movieCredits);
+	console.log(movieDetails);
 
 	// Check if movie does not have videos, else get trailer
 	if (movieVideos.results.length === 0) {

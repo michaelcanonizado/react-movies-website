@@ -10,8 +10,8 @@ export default function Credits({ type, data, movieId }) {
 			<ul className="flex overflow-x-scroll overflow-hidden hide-scrollbar">
 				{data.map((person, index) => {
 					return (
-						<>
-							<li className="" key={person.id}>
+						<div key={index} className="flex">
+							<li className="">
 								<a
 									className="text-accent-200
                         
@@ -31,7 +31,7 @@ export default function Credits({ type, data, movieId }) {
 							) : (
 								''
 							)}
-						</>
+						</div>
 					);
 				})}
 			</ul>

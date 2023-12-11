@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function RatesCard({ type, movieId, rating, ratingCount }) {
+export default function RatesCard({ type, movieId, rating }) {
 	let header = '-----';
 	if (type === 'ratingResults') {
 		header = 'TMDB RATING';
