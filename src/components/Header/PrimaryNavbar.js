@@ -34,7 +34,7 @@ export default function Navbar({ className }) {
 					
 					px-[10px] pt-[2px] grid place-items-center"
 					>
-						<a className="" href="/popular">
+						<a className="" href="/">
 							<span
 								className="text-secondary-200 font-display whitespace-nowrap
 
