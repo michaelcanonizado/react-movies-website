@@ -1,20 +1,32 @@
-import React from 'react';
-import { useLoaderData, json } from 'react-router-dom';
+import React, { Suspense } from 'react';
 
 import { options } from './../helpers/fecthOptions';
 import filterMovieData from '../helpers/filterMovieData';
 
 import MovieDetails from '../components/Main/MovieDetails/MovieDetails';
 
+import SkeletonMovieDetails from '../components/Skeletons/SkeletonMovieDetails';
+
+import { useLoaderData, json, defer, Await } from 'react-router-dom';
+
 export default function MovieDetailsPage() {
-	const movieDetails = useLoaderData();
+	const { movieDetails } = useLoaderData();
 
-	console.log(movieDetails);
+	// console.log(movieDetails);
 
-	return <MovieDetails movie={movieDetails} />;
+	// return <MovieDetails movie={movieDetails} />;
+	return (
+		<Suspense fallback={<SkeletonMovieDetails />}>
+			<Await resolve={movieDetails}>
+				{(loadedMovieData) => <MovieDetails movie={loadedMovieData} />}
+			</Await>
+		</Suspense>
+	);
 }
 
-export async function loader({ request, params }) {
+async function getMovieDetails(params) {
+	console.log('FUNCTION TRIGGERED');
+	console.log('PARAMS ' + params);
 	const response = await Promise.all([
 		fetch(`https://api.themoviedb.org/3/movie/${params.movieId}`, options),
 		fetch(
@@ -30,6 +42,8 @@ export async function loader({ request, params }) {
 			options
 		),
 	]);
+
+	console.log(response);
 
 	if (!response[0].ok || !response[1].ok || !response[2].ok || !response[3].ok) {
 		console.log(response);
@@ -56,4 +70,10 @@ export async function loader({ request, params }) {
 		);
 		return filteredMovieData;
 	}
+}
+
+export async function loader({ request, params }) {
+	return defer({
+		movieDetails: getMovieDetails(params),
+	});
 }
