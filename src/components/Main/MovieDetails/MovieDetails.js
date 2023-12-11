@@ -72,7 +72,6 @@ export default function MovieDetails({ movie }) {
 					className="absolute w-full h-full  backdrop-brightness-[60%] backdrop-blur-sm
 				"
 				></div>
-				{/* rgba(44, 44, 44, 0.5) */}
 				<div
 					className="absolute w-full h-[75%] bottom-0"
 					style={{

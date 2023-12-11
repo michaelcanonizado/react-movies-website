@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 // Skeletons
 import SkeletonMoviesList from './components/Skeletons/SkeletonMoviesList';
+import SkeletonMovieDetails from './components/Skeletons/SkeletonMovieDetails';
 
 // Components - Layouts
 import MainRootLayout from './pages/MainRootLayout';
@@ -14,9 +15,7 @@ import MoviesListError from './pages/MoviesListError';
 // Components - Home Page
 import Home from './pages/Home';
 // Components - Movie Details Page
-import MovieDetailsPage, {
-	loader as MovieDetailsLoader,
-} from './pages/MovieDetailsPage';
+import { loader as MovieDetailsLoader } from './pages/MovieDetailsPage';
 // Components - Movie Lists
 import { loader as popularMoviesLoader } from './pages/Popular';
 import { loader as topRatedMoviesLoader } from './pages/TopRated';
@@ -24,6 +23,7 @@ import { loader as nowPlayingMoviesLoader } from './pages/NowPlaying';
 import { loader as upcomingMoviesLoader } from './pages/Upcoming';
 
 // Components - Lazy Pages
+const LazyMovieDetailsPage = lazy(() => import('./pages/MovieDetailsPage'));
 const LazyPopular = lazy(() => import('./pages/Popular'));
 const LazyTopRated = lazy(() => import('./pages/TopRated'));
 const LazyNowPlaying = lazy(() => import('./pages/NowPlaying'));
@@ -38,7 +38,12 @@ const router = createBrowserRouter([
 			{ index: true, element: <Home /> },
 			{
 				path: '/movie/:movieId',
-				element: <MovieDetailsPage />,
+				element: (
+					<Suspense fallback={<SkeletonMovieDetails />}>
+						<LazyMovieDetailsPage />
+						{/* <SkeletonMovieDetails /> */}
+					</Suspense>
+				),
 				loader: MovieDetailsLoader,
 			},
 			{

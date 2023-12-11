@@ -3,11 +3,7 @@ import React from 'react';
 export default function AddToWatchlistCTA() {
 	return (
 		<button
-			className="bg-accent-100 text-secondary-300 w-full rounded overflow-hidden
-        
-        flex
-
-        transition-all
+			className="bg-accent-100 text-secondary-300 w-full rounded overflow-hidden flex transition-all
         "
 		>
 			<div
