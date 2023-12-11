@@ -15,14 +15,14 @@ export default function RatesCard({ type, movieId, rating }) {
 			className={`flex justify-center mr-[4px] mt-[6px]`}
 			href={`/movie/${movieId}`}
 		>
-			<div className="grid place-content-center">
+			<div className="grid place-content-center mt-[2px]">
 				<img
 					className="w-[30px] lg:w-[40px]"
 					src="/icon-rating-star-red-16.svg"
 					alt="Movie Rating"
 				/>
 			</div>
-			<div className="tracking-wide mt-[-2px]">
+			<div className="tracking-wide lg:mt-[-2px]">
 				<div className="">
 					<span
 						className={`font-bold ${typographySharedClasses} text-[1.25rem]`}

@@ -217,15 +217,19 @@ export default function MovieDetails({ movie }) {
 								})}
 							</div>
 							<div className="mb-[1rem]">
-								<span
-									className=" text-secondary-400 italic font-normal tracking-[0.03125em]
+								{tagline.length !== 0 ? (
+									<span
+										className=" text-secondary-400 italic font-normal tracking-[0.03125em]
 								
 								text-sm
 								md:text-base
 								"
-								>
-									"{tagline}"
-								</span>
+									>
+										"{tagline}"
+									</span>
+								) : (
+									''
+								)}
 								<p
 									className="tracking-[0.03125em] leading-[1.5rem] font-normal 
 
