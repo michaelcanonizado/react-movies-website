@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 export default function Credits({ type, data, movieId }) {
 	return (
 		<li
@@ -12,7 +14,7 @@ export default function Credits({ type, data, movieId }) {
 					return (
 						<div key={index} className="flex">
 							<li className="">
-								<a
+								<Link
 									className="text-accent-200
                         
                         			hover:cursor-pointer
@@ -22,7 +24,7 @@ export default function Credits({ type, data, movieId }) {
 									href={`/movie/${movieId}`}
 								>
 									{person.name}
-								</a>
+								</Link>
 							</li>
 							{data.length !== index + 1 ? (
 								<div className="font-black mx-[8px] w-[3px] md:w-[2px] grid place-items-center">

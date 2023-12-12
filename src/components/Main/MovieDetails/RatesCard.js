@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 export default function RatesCard({ type, movieId, rating }) {
 	let header = '-----';
 	if (type === 'ratingResults') {
@@ -11,7 +13,7 @@ export default function RatesCard({ type, movieId, rating }) {
 	const typographySharedClasses = 'text-[1rem] lg:text-[1.25rem]';
 
 	const ratingResultsComponent = (
-		<a
+		<Link
 			className={`flex justify-center mr-[4px] mt-[6px]`}
 			href={`/movie/${movieId}`}
 		>
@@ -32,11 +34,11 @@ export default function RatesCard({ type, movieId, rating }) {
 					<span className="">/10</span>
 				</div>
 			</div>
-		</a>
+		</Link>
 	);
 
 	const castRatingComponent = (
-		<a className={`flex justify-center`} href={`/movie/${movieId}`}>
+		<Link className={`flex justify-center`} href={`/movie/${movieId}`}>
 			<div className="grid place-content-center">
 				<img
 					className="w-[20px] lg:w-[25px]"
@@ -57,7 +59,7 @@ export default function RatesCard({ type, movieId, rating }) {
 					Rate
 				</span>
 			</div>
-		</a>
+		</Link>
 	);
 
 	return (

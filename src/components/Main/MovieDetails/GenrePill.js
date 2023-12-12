@@ -1,8 +1,10 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 export default function GenrePill({ genre, movieId }) {
 	return (
-		<a
+		<Link
 			className="
 			
 			px-[12px] py-1 
@@ -17,6 +19,6 @@ export default function GenrePill({ genre, movieId }) {
 			href={`/movie/${movieId}`}
 		>
 			<span className="whitespace-nowrap">{genre}</span>
-		</a>
+		</Link>
 	);
 }

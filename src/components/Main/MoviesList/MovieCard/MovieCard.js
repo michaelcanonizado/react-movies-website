@@ -91,7 +91,7 @@ export default function MovieCard({
 				</div>
 
 				<div className="mt-[12px] py-[9px] rounded grid place-items-center bg-secondary-100 hover:cursor-pointer hover:bg-[#30353C] transition-colors duration-150 ease-in-out">
-					<a className="text-accent-200 flex" href="/popular">
+					<Link className="text-accent-200 flex" href="/popular">
 						<span
 							className="grid place-items-center 
 						
@@ -118,7 +118,7 @@ export default function MovieCard({
 						>
 							Watchlist
 						</span>
-					</a>
+					</Link>
 				</div>
 			</div>
 		</div>

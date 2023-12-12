@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 
+import { Link } from 'react-router-dom';
+
 export default function Navbar({ className }) {
 	const [focusedInput, setFocusedInput] = useState(false);
 	const [searchBarIsShown, setSearchBarIsShown] = useState(false);
@@ -34,7 +36,7 @@ export default function Navbar({ className }) {
 					
 					px-[10px] pt-[2px] grid place-items-center"
 					>
-						<a className="" href="/">
+						<Link className="" href="/">
 							<span
 								className="text-secondary-200 font-display whitespace-nowrap
 
@@ -44,7 +46,7 @@ export default function Navbar({ className }) {
 							>
 								REACT MOVIES
 							</span>
-						</a>
+						</Link>
 					</div>
 				</div>
 
