@@ -21,7 +21,7 @@ export default function Credits({ type, data, movieId }) {
                         			hover:underline
 									whitespace-nowrap
                         			"
-									href={`/movie/${movieId}`}
+									to={`/movie/${movieId}`}
 								>
 									{person.name}
 								</Link>

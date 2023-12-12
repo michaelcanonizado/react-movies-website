@@ -38,7 +38,7 @@ export default function RatesCard({ type, movieId, rating }) {
 	);
 
 	const castRatingComponent = (
-		<Link className={`flex justify-center`} href={`/movie/${movieId}`}>
+		<Link className={`flex justify-center`} to={`/movie/${movieId}`}>
 			<div className="grid place-content-center">
 				<img
 					className="w-[20px] lg:w-[25px]"

@@ -36,7 +36,7 @@ export default function Navbar({ className }) {
 					
 					px-[10px] pt-[2px] grid place-items-center"
 					>
-						<Link className="" href="/">
+						<Link className="" to="/">
 							<span
 								className="text-secondary-200 font-display whitespace-nowrap
 
