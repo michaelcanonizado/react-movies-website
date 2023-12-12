@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 import screenBreakpoints from '../../../helpers/screenBreakpoints';
 
 export default function Home() {
@@ -25,12 +27,12 @@ export default function Home() {
 				</div>
 
 				<span className="pt-[10px] block flex justify-center">
-					<a
+					<Link
 						className="rounded bg-accent-100 w-full pb-[9px] pt-[8px] block text-center hover:brightness-110"
-						href="/popular"
+						to="/popular"
 					>
 						Movies List
-					</a>
+					</Link>
 				</span>
 			</div>
 		</section>

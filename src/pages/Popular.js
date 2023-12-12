@@ -22,6 +22,7 @@ export default function Popular() {
 }
 
 async function getMovies() {
+	console.log('Loading movies...');
 	const response = await Promise.all([
 		fetch(
 			'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',
