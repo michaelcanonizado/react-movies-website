@@ -18,7 +18,7 @@ export default function RatesCard({ type, movieId, rating }) {
 			<div className="grid place-content-center mt-[2px]">
 				<img
 					className="w-[30px] lg:w-[40px]"
-					src="/icon-rating-star-red-16.svg"
+					src="./icon-rating-star-red-16.svg"
 					alt="Movie Rating"
 				/>
 			</div>
@@ -40,7 +40,7 @@ export default function RatesCard({ type, movieId, rating }) {
 			<div className="grid place-content-center">
 				<img
 					className="w-[20px] lg:w-[25px]"
-					src="/icon-rating-star-blue-14.svg"
+					src="./icon-rating-star-blue-14.svg"
 					alt="Movie Rating"
 				/>
 			</div>

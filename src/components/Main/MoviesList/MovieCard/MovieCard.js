@@ -41,7 +41,7 @@ export default function MovieCard({
 						xl:mt-[3px]"
 						>
 							<img
-								src="/icon-rating-star-red-14.svg"
+								src="./icon-rating-star-red-14.svg"
 								alt={`${title}'s rating is ${rating}`}
 							/>
 						</span>
@@ -56,7 +56,7 @@ export default function MovieCard({
 					hover:cursor-pointer hover:bg-secondary-100 rounded"
 					>
 						<img
-							src="/icon-rating-star-blue-14.svg"
+							src="./icon-rating-star-blue-14.svg"
 							alt={`${title}'s rating is ${rating}`}
 						/>
 					</div>
@@ -81,11 +81,11 @@ export default function MovieCard({
 				<div className="mt-[12px] flex self-center font-light text-xs tracking-wider">
 					<span className="">{releaseYear}</span>
 					<span className="font-black mx-[6px] grid place-items-center">
-						<img src="icon-dot-4.svg" alt={`${title} details`} />
+						<img src="./icon-dot-4.svg" alt={`${title} details`} />
 					</span>
 					<span className="">{language.toUpperCase()}</span>
 					<span className="font-black mx-[6px] grid place-items-center">
-						<img src="icon-dot-4.svg" alt={`${title} details`} />
+						<img src="./icon-dot-4.svg" alt={`${title} details`} />
 					</span>
 					<span className="">Movie</span>
 				</div>
@@ -99,7 +99,7 @@ export default function MovieCard({
 						xl:w-[16px]"
 						>
 							<img
-								src="/icon-add-to-watchlist-blue.svg"
+								src="./icon-add-to-watchlist-blue.svg"
 								alt="Add to watchlist"
 							/>
 						</span>

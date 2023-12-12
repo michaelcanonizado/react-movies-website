@@ -80,7 +80,7 @@ export default function Navbar({ className }) {
 							<button className="w-[40px]" onClick={toggleSearchBar}>
 								<div className="w-[15px]">
 									<img
-										src="/icon-search-exit-white.svg"
+										src="./icon-search-exit-white.svg"
 										alt="exit search"
 										className="w-full h-full"
 									/>
@@ -93,7 +93,7 @@ export default function Navbar({ className }) {
 						onClick={toggleSearchBar}
 					>
 						<div className="w-[20px]">
-							<img src="/icon-search-white.svg" alt="Search movie" />
+							<img src="./icon-search-white.svg" alt="Search movie" />
 						</div>
 					</button>
 				</div>
@@ -124,7 +124,7 @@ export default function Navbar({ className }) {
 						<button className=" text-secondary-200 h-full w-[70px] border-[none] grid place-items-center">
 							<div className="w-[20px]">
 								<img
-									src="/icon-search-grey.svg"
+									src="./icon-search-grey.svg"
 									alt="Search movie"
 								/>
 							</div>
