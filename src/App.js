@@ -38,7 +38,7 @@ const router = createBrowserRouter(
 			children: [
 				{ index: true, element: <HomePage /> },
 				{
-					path: '/react-movies-website/movie/:movieId',
+					path: '/movie/:movieId',
 					element: (
 						<Suspense fallback={<SkeletonMovieDetails />}>
 							<LazyMovieDetailsPage />
@@ -48,7 +48,7 @@ const router = createBrowserRouter(
 					loader: MovieDetailsLoader,
 				},
 				{
-					path: '/react-movies-website/popular',
+					path: '/popular',
 					element: <MoviesListRootLayout />,
 					errorElement: <MoviesListError />,
 					children: [

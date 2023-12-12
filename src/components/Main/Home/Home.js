@@ -26,7 +26,7 @@ export default function Home() {
 					</p>
 				</div>
 
-				<span className="pt-[10px] block flex justify-center">
+				<span className="pt-[10px] flex justify-center">
 					<Link
 						className="rounded bg-accent-100 w-full pb-[9px] pt-[8px] block text-center hover:brightness-110"
 						to="/popular"
