@@ -15,9 +15,14 @@ export default function AddToWatchlistCTA() {
 				<div className="flex justify-left content-center w-[25px]">
 					<img
 						className="w-[12px]"
-						src="./icon-add-to-watchlist-black.svg"
+						src="./../icon-add-to-watchlist-black.svg"
 						alt="Add to Wishlist"
 					/>
+					{/* <img
+						className="w-[12px]"
+						src="./icon-add-to-watchlist-black.svg"
+						alt="Add to Wishlist"
+					/> */}
 				</div>
 
 				<div
@@ -40,9 +45,14 @@ export default function AddToWatchlistCTA() {
 			>
 				<img
 					className=""
-					src="./icon-chevron-black-down.svg"
+					src="./../icon-chevron-black-down.svg"
 					alt="View Wishlist"
 				/>
+				{/* <img
+					className=""
+					src="./icon-chevron-black-down.svg"
+					alt="View Wishlist"
+				/> */}
 			</div>
 		</button>
 	);
