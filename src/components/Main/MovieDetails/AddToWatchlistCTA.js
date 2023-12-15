@@ -13,16 +13,16 @@ export default function AddToWatchlistCTA() {
             hover:brightness-110"
 			>
 				<div className="flex justify-left content-center w-[25px]">
-					<img
+					{/* <img
 						className="w-[12px]"
 						src="./../icon-add-to-watchlist-black.svg"
 						alt="Add to Wishlist"
-					/>
-					{/* <img
+					/> */}
+					<img
 						className="w-[12px]"
 						src="./icon-add-to-watchlist-black.svg"
 						alt="Add to Wishlist"
-					/> */}
+					/>
 				</div>
 
 				<div
@@ -43,16 +43,16 @@ export default function AddToWatchlistCTA() {
              bg-[inherit]
              hover:brightness-110"
 			>
-				<img
+				{/* <img
 					className=""
 					src="./../icon-chevron-black-down.svg"
 					alt="View Wishlist"
-				/>
-				{/* <img
+				/> */}
+				<img
 					className=""
 					src="./icon-chevron-black-down.svg"
 					alt="View Wishlist"
-				/> */}
+				/>
 			</div>
 		</button>
 	);

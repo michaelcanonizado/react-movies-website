@@ -28,8 +28,8 @@ export default function Credits({ type, data, movieId }) {
 							</li>
 							{data.length !== index + 1 ? (
 								<div className="font-black mx-[8px] w-[3px] md:w-[2px] grid place-items-center">
-									<img src="./../icon-dot-4.svg" alt={type} />
-									{/* <img src="./icon-dot-4.svg" alt={type} /> */}
+									{/* <img src="./../icon-dot-4.svg" alt={type} /> */}
+									<img src="./icon-dot-4.svg" alt={type} />
 								</div>
 							) : (
 								''

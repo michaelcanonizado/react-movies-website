@@ -18,16 +18,16 @@ export default function RatesCard({ type, movieId, rating }) {
 			href={`/movie/${movieId}`}
 		>
 			<div className="grid place-content-center mt-[2px]">
-				<img
+				{/* <img
 					className="w-[30px] lg:w-[40px]"
 					src="./../icon-rating-star-red-16.svg"
 					alt="Movie Rating"
-				/>
-				{/* <img
+				/> */}
+				<img
 					className="w-[30px] lg:w-[40px]"
 					src="./icon-rating-star-red-16.svg"
 					alt="Movie Rating"
-				/> */}
+				/>
 			</div>
 			<div className="tracking-wide lg:mt-[-2px]">
 				<div className="">
@@ -45,16 +45,16 @@ export default function RatesCard({ type, movieId, rating }) {
 	const castRatingComponent = (
 		<Link className={`flex justify-center`} to={`/movie/${movieId}`}>
 			<div className="grid place-content-center">
-				<img
+				{/* <img
 					className="w-[20px] lg:w-[25px]"
 					src="./../icon-rating-star-blue-14.svg"
 					alt="Movie Rating"
-				/>
-				{/* <img
+				/> */}
+				<img
 					className="w-[20px] lg:w-[25px]"
 					src="./icon-rating-star-blue-14.svg"
 					alt="Movie Rating"
-				/> */}
+				/>
 			</div>
 			<div
 				className="tracking-wide 

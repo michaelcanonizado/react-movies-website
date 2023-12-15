@@ -105,25 +105,25 @@ export default function MovieDetails({ movie }) {
 							>
 								<span className="">{releaseYear}</span>
 								<span className="font-black mx-[6px] w-[2px] grid place-items-center">
-									<img
+									{/* <img
 										src="./../icon-dot-4.svg"
 										alt={`${title} details`}
-									/>
-									{/* <img
+									/> */}
+									<img
 										src="./icon-dot-4.svg"
 										alt={`${title} details`}
-									/> */}
+									/>
 								</span>
 								<span className="">{language.toUpperCase()}</span>
 								<span className="font-black mx-[6px] w-[2px] grid place-items-center">
-									<img
+									{/* <img
 										src="./../icon-dot-4.svg"
 										alt={`${title} details`}
-									/>
-									{/* <img
+									/> */}
+									<img
 										src="./icon-dot-4.svg"
 										alt={`${title} details`}
-									/> */}
+									/>
 								</span>
 								<span className="">
 									{(runtime / 60).toFixed(1)}h
