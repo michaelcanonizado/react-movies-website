@@ -1,6 +1,10 @@
 import { Suspense, lazy } from 'react';
 import { SkeletonTheme } from 'react-loading-skeleton';
-import { createBrowserRouter, RouterProvider, HashRouter } from 'react-router-dom';
+import {
+	createBrowserRouter,
+	RouterProvider,
+	createHashRouter,
+} from 'react-router-dom';
 
 // Skeletons
 import SkeletonMoviesList from './components/Skeletons/SkeletonMoviesList';
@@ -29,93 +33,90 @@ const LazyTopRated = lazy(() => import('./pages/TopRated'));
 const LazyNowPlaying = lazy(() => import('./pages/NowPlaying'));
 const LazyUpcoming = lazy(() => import('./pages/Upcoming'));
 
-const router = createBrowserRouter(
-	[
-		{
-			path: '/',
-			element: <MainRootLayout />,
-			errorElement: <MainError />,
-			children: [
-				{ index: true, element: <HomePage /> },
-				{
-					path: '/movie/:movieId',
-					element: (
-						<Suspense fallback={<SkeletonMovieDetails />}>
-							<LazyMovieDetailsPage />
-							{/* <SkeletonMovieDetails /> */}
-						</Suspense>
-					),
-					loader: MovieDetailsLoader,
-				},
-				{
-					path: '/popular',
-					element: <MoviesListRootLayout />,
-					errorElement: <MoviesListError />,
-					children: [
-						{
-							index: true,
-							element: (
-								<Suspense fallback={<SkeletonMoviesList />}>
-									<LazyPopular />
-								</Suspense>
-							),
-							loader: popularMoviesLoader,
-						},
-					],
-				},
-				{
-					path: 'top-rated',
-					element: <MoviesListRootLayout />,
-					errorElement: <MoviesListError />,
-					children: [
-						{
-							index: true,
-							element: (
-								<Suspense fallback={<SkeletonMoviesList />}>
-									<LazyTopRated />
-								</Suspense>
-							),
-							loader: topRatedMoviesLoader,
-						},
-					],
-				},
-				{
-					path: 'now-playing',
-					element: <MoviesListRootLayout />,
-					errorElement: <MoviesListError />,
-					children: [
-						{
-							index: true,
-							element: (
-								<Suspense fallback={<SkeletonMoviesList />}>
-									<LazyNowPlaying />
-								</Suspense>
-							),
-							loader: nowPlayingMoviesLoader,
-						},
-					],
-				},
-				{
-					path: 'upcoming',
-					element: <MoviesListRootLayout />,
-					errorElement: <MoviesListError />,
-					children: [
-						{
-							index: true,
-							element: (
-								<Suspense fallback={<SkeletonMoviesList />}>
-									<LazyUpcoming />
-								</Suspense>
-							),
-							loader: upcomingMoviesLoader,
-						},
-					],
-				},
-			],
-		},
-	],
-	{ basename: '/react-movies-website' }
-);
+const router = createHashRouter([
+	{
+		path: '/',
+		element: <MainRootLayout />,
+		errorElement: <MainError />,
+		children: [
+			{ index: true, element: <HomePage /> },
+			{
+				path: '/movie/:movieId',
+				element: (
+					<Suspense fallback={<SkeletonMovieDetails />}>
+						<LazyMovieDetailsPage />
+						{/* <SkeletonMovieDetails /> */}
+					</Suspense>
+				),
+				loader: MovieDetailsLoader,
+			},
+			{
+				path: '/popular',
+				element: <MoviesListRootLayout />,
+				errorElement: <MoviesListError />,
+				children: [
+					{
+						index: true,
+						element: (
+							<Suspense fallback={<SkeletonMoviesList />}>
+								<LazyPopular />
+							</Suspense>
+						),
+						loader: popularMoviesLoader,
+					},
+				],
+			},
+			{
+				path: 'top-rated',
+				element: <MoviesListRootLayout />,
+				errorElement: <MoviesListError />,
+				children: [
+					{
+						index: true,
+						element: (
+							<Suspense fallback={<SkeletonMoviesList />}>
+								<LazyTopRated />
+							</Suspense>
+						),
+						loader: topRatedMoviesLoader,
+					},
+				],
+			},
+			{
+				path: 'now-playing',
+				element: <MoviesListRootLayout />,
+				errorElement: <MoviesListError />,
+				children: [
+					{
+						index: true,
+						element: (
+							<Suspense fallback={<SkeletonMoviesList />}>
+								<LazyNowPlaying />
+							</Suspense>
+						),
+						loader: nowPlayingMoviesLoader,
+					},
+				],
+			},
+			{
+				path: 'upcoming',
+				element: <MoviesListRootLayout />,
+				errorElement: <MoviesListError />,
+				children: [
+					{
+						index: true,
+						element: (
+							<Suspense fallback={<SkeletonMoviesList />}>
+								<LazyUpcoming />
+							</Suspense>
+						),
+						loader: upcomingMoviesLoader,
+					},
+				],
+			},
+		],
+	},
+]);
 
 function App() {
 	return (
