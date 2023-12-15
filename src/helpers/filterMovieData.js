@@ -25,8 +25,6 @@ const filterMovieData = async (
 		tagline: movieDetails.tagline,
 	};
 
-	console.log(movieDetails);
-
 	// Check if movie does not have videos, else get trailer
 	if (movieVideos.results.length === 0) {
 		filteredMovieData.trailer = null;
@@ -57,23 +55,39 @@ const filterMovieData = async (
 		);
 	}
 
+	// Filter the first 3 directors and writers
+	const directors = [];
+	const writers = [];
+	for (const crew of movieCredits.crew) {
+		// If sufficient amount of directors and writers are found, exit out.
+		if (directors.length === 3 && writers.length === 3) {
+			break;
+		}
+
+		// Only insert directors if it is not already in the array
+		if (!directors.some((filteredCrew) => filteredCrew.id === crew.id)) {
+			if (directors.length !== 3) {
+				if (crew.job === 'Director' || crew.department === 'Directing') {
+					directors.push(crew);
+				}
+			}
+		}
+
+		// Only insert writers if it is not already in the array
+		if (!writers.some((filteredCrew) => filteredCrew.id === crew.id)) {
+			if (writers.length !== 3) {
+				if (crew.department === 'Writing') {
+					writers.push(crew);
+				}
+			}
+		}
+	}
+
 	// Get movie credits
 	const credits = {
 		casts: [movieCredits.cast[0], movieCredits.cast[1], movieCredits.cast[2]],
-		directors: movieCredits.crew
-			.filter((crew) => {
-				if (crew.job === 'Director' || crew.department === 'Directing') {
-					return crew;
-				}
-			})
-			.slice(0, 3),
-		writers: movieCredits.crew
-			.filter((crew) => {
-				if (crew.department === 'Writing') {
-					return crew;
-				}
-			})
-			.slice(0, 3),
+		directors: directors,
+		writers: writers,
 	};
 
 	filteredMovieData.credits = credits;

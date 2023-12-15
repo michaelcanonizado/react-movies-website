@@ -62,7 +62,7 @@ async function getMovieDetails(params) {
 			movieVideos
 		);
 
-		console.log(filteredMovieData);
+		// console.log(filteredMovieData);
 		return filteredMovieData;
 	}
 }
