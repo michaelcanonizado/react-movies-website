@@ -65,7 +65,7 @@ export default function MovieDetails({ movie }) {
 	return (
 		<>
 			<div
-				className={`bg-no-repeat bg-cover bg-center fixed min-h-screen pb-[50px] inset-0`}
+				className={`bg-no-repeat bg-cover bg-center fixed min-h-screen inset-0`}
 				style={{ backgroundImage: `url(${backdrop})` }}
 			>
 				<div
@@ -80,7 +80,7 @@ export default function MovieDetails({ movie }) {
 					}}
 				></div>
 			</div>
-			<div className="relative">
+			<div className="relative pb-[100px]">
 				<section
 					className={`px-4 m-auto
 					${screenBreakpoints} relative pt-[52px]`}
