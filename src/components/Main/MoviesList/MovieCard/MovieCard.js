@@ -27,9 +27,13 @@ export default function MovieCard({
 				<div
 					className="
 					aspect-poster 
-				w-full hover:cursor-pointer hover:brightness-90"
+				w-full hover:cursor-pointer hover:brightness-90 bg-red-400"
 				>
-					<img src={image} alt={title} className="w-full object-cover" />
+					<img
+						src={image}
+						alt={title}
+						className="h-full object-cover object-center"
+					/>
 				</div>
 			</Link>
 			<div className="mt-[18px] mb-[10px] mx-[10px] flex flex-col">
