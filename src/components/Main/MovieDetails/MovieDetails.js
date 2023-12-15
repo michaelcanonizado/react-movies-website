@@ -65,7 +65,7 @@ export default function MovieDetails({ movie }) {
 	return (
 		<>
 			<div
-				className={`bg-no-repeat bg-cover bg-center relative min-h-screen pb-[50px]`}
+				className={`bg-no-repeat bg-cover bg-center fixed min-h-screen pb-[50px] inset-0`}
 				style={{ backgroundImage: `url(${backdrop})` }}
 			>
 				<div
@@ -79,7 +79,8 @@ export default function MovieDetails({ movie }) {
 							'linear-gradient(to top, rgb(15, 15, 15, 0.9) 50%, rgb(255, 255, 255,0)',
 					}}
 				></div>
-
+			</div>
+			<div className="relative">
 				<section
 					className={`px-4 m-auto
 					${screenBreakpoints} relative pt-[52px]`}

@@ -1,6 +1,6 @@
 import { Suspense, lazy } from 'react';
 import { SkeletonTheme } from 'react-loading-skeleton';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider, HashRouter } from 'react-router-dom';
 
 // Skeletons
 import SkeletonMoviesList from './components/Skeletons/SkeletonMoviesList';
