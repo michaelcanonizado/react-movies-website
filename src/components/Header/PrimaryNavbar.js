@@ -14,7 +14,7 @@ export default function Navbar({ className }) {
 	};
 
 	return (
-		<header className="bg-secondary-300 w-full z-50">
+		<header className="bg-secondary-300 w-full z-50 sticky top-0">
 			<nav
 				className={`py-3 px-6 
 			
