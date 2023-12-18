@@ -1,7 +1,6 @@
 import { Suspense, lazy } from 'react';
 import { SkeletonTheme } from 'react-loading-skeleton';
 import {
-	createBrowserRouter,
 	RouterProvider,
 	createHashRouter,
 } from 'react-router-dom';
